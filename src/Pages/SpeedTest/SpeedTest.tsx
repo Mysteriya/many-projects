@@ -93,8 +93,6 @@ function SpeedTest() {
             className='buttonClick'
         >CLICK
         </button>
-        
-        Привет!
     </div>
   )
 }
