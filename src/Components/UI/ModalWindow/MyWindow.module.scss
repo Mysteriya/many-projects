@@ -1,0 +1,35 @@
+.background{
+    position: absolute;
+    top: 10%;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.295);
+}
+
+.window{ 
+    display: block;
+
+    text-align: center;
+
+    padding: 20px;
+
+    border-radius: 5px;
+
+    background-color: rgba(255, 119, 119, 0.986);
+}
+
+.content{
+    p{
+        margin-top: 20px;
+    }
+    h2{
+        text-align: center;
+    }
+
+    input{
+        margin-top: 5px;
+    }
+}

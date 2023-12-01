@@ -1,0 +1,156 @@
+.todo-content{
+    margin: 50px;
+
+    .todoButtonModalBack{
+        text-align: start;
+    }
+
+    .todoButtonModalAssing{
+        text-align: end;
+
+        position: relative;
+        bottom: 50%;
+    }
+
+    .todo-block{
+        margin-top: 30px;
+
+        padding: 20px;
+
+        border: 5px solid rgb(84, 84, 217);
+        border-radius: 10px;
+        
+        .todo-button{
+            text-align:end;
+            padding: 10px;
+
+            button{
+                color: black;
+    
+                padding: 5px 15px;
+                margin-left: 10px;
+    
+            }
+        }
+
+        p{
+            color: white;
+        }
+
+        strong{
+            color: white;
+        }
+
+        .name-block{
+            p{
+                color: white;
+
+                transition: 0.3s;
+
+                margin-bottom: 10px;
+
+                display: inline;
+                padding: 2px;
+
+                margin-left: 10px;
+
+                &:hover{
+                    color: rgb(66, 255, 255);
+    
+                    border-bottom: 1px dashed rgb(26, 25, 25);
+                }
+            }
+        }
+
+        p{
+            margin-top: 15px;
+        }
+    }
+
+    .control-block{
+
+        .todo-input{
+
+            .todo-col{
+                margin-top: 20px;
+    
+                input{
+                    padding: 5px 30px;
+    
+                    border-radius: 6px;
+                }
+
+                p{
+                    color: white;
+                }
+            }
+    
+            .todo-button{
+                margin-top: 20px;
+    
+                padding: 10px 20px;
+            }
+        }
+
+        .selected-block{
+            text-align: end;
+        }
+
+        .search-block{
+
+            text-align: center;
+
+            input{
+                padding: 10px 30px;
+
+                color: black;
+            }
+        }
+    }
+}
+
+.todo-full{
+    padding: 20px;
+
+
+    .todo-blockFull{
+        margin-top: 30px;
+    
+        padding: 30px;
+    
+        border: 5px solid rgb(84, 84, 217);
+        border-radius: 10px;
+        
+        button{
+            position: relative;
+            left: 90%;
+    
+            padding: 10px 20px;
+    
+        }
+    
+        .name-block{
+            p{
+                transition: 0.3s;
+    
+                margin-bottom: 10px;
+    
+                display: inline;
+                padding: 2px;
+    
+                margin-left: 10px;
+    
+                &:hover{
+                    color: rgb(66, 255, 255);
+    
+                    border-bottom: 1px dashed rgb(26, 25, 25);
+                }
+            }
+        }
+    
+        p{
+            margin-top: 15px;
+        }
+    }
+}
+

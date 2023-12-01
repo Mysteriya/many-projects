@@ -1,0 +1,72 @@
+body{
+    background-color: rgb(71, 71, 71);
+}
+
+.content{
+
+    .content-block{
+
+        display:inline-flex;
+
+        .block{
+            position: absolute;
+
+            height: 925px;
+            width: 463px;
+    
+            background-color: rgba(99, 99, 99, 0.422);
+    
+            button{
+                padding: 15px 25px;
+    
+                border: none;
+                border-radius: 2px;
+    
+                background-color: rgb(252, 231, 191);
+    
+                color: rgb(47, 47, 47);
+    
+                transition: 0.1s;
+    
+                &:hover{
+                    background-color: rgb(59, 58, 58);
+    
+                    color: azure;
+                }
+                &:active{
+                    background-color: rgb(104, 249, 249);
+                }
+    
+    
+                position: relative;
+    
+                top: 50%;
+                left: 30%;
+            }
+        }
+    
+        .image{
+            position: relative;
+            left: 600px;
+
+            .img{
+
+                transform: scale(0.9);
+
+                transition: 0.1s;
+
+                border-radius: 10px;
+
+                &:hover{
+                    transform: scale(1.04);
+
+                    box-shadow: 10px 10px 2px 1px rgba(66, 66, 66, 0.2);
+                }          
+            }
+        }
+    }
+}
+
+.full{
+    padding: 50px;
+}

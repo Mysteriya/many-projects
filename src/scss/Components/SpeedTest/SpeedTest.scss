@@ -1,0 +1,51 @@
+div{
+
+    .styleButton{
+        padding: 15px 25px;
+        margin-top: 30px;
+
+        border: none;
+        border-radius: 5px;
+
+        background-color: rgb(41, 41, 43);
+        color: rgb(255, 255, 255);
+
+        transition: 0.1s linear;
+
+        &:hover{
+            background-color: rgb(255, 255, 255);
+            color: rgb(41, 41, 43);
+        }
+    }
+
+    .blockTimeCount{
+        display: flex;
+        justify-content: center;
+
+        margin-top: 10%;
+        div{
+            display:flex;
+        
+            background-color: #e0ecf66d;
+        
+            padding: 40px 120px;
+            border-radius: 15px;
+        
+            h1{
+                color: white;
+                border-bottom: 2px dashed black;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+    .buttonClick{
+
+        margin: 0 auto;
+        display: block;
+
+        margin-top:2%;
+
+        padding: 50px 120px;
+    }
+}

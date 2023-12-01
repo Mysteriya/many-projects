@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@700&family=Nunito+Sans:opsz,wght@6..12,700;6..12,1000&family=Raleway:ital,wght@0,300;1,100&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+
+    font-family: 'Raleway', sans-serif;
+}
+
+.Header{
+    padding: 25px;
+    background-color: rgb(31, 31, 31);
+
+    .Button-Block{
+        .button_home{
+            display:inline-flex;
+        }
+        .button_components{
+            display: inline-flex;
+            margin-left: 15%;
+        }
+
+        button{
+
+            margin-right: 20px;
+
+            padding: 15px 25px;
+
+            border: none;
+            border-radius: 2px;
+
+            background-color: rgb(252, 231, 191);
+
+            color: rgb(47, 47, 47);
+
+            transition: 0.1s;
+
+            &:hover{
+                background-color: rgb(59, 58, 58);
+
+                color: azure;
+            }
+            &:active{
+                background-color: rgb(104, 249, 249);
+            }
+        }
+    }
+}
