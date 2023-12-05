@@ -1,0 +1,50 @@
+.block-convert{
+    margin: 20px;
+
+    .converter{
+        display: inline-block;
+        background-color: rgb(242, 242, 239);
+        border-radius: 15px;
+
+        .sideBlock{
+            display: inline-block;
+            padding: 30px;
+            border-radius: 10px;
+            margin-left: 20px;
+
+            div{
+                margin-bottom: 10px;
+
+                strong{
+                    border: 0.1px solid rgba(0, 0, 0, 0.128);
+                    padding: 5px 6px;
+                    border-radius: 5px;
+                    transition: 0.1s linear;
+
+                    &.active{
+                        background-color: red;
+                    }
+                    
+                    &:hover{
+                        background-color: rgb(0, 206, 131);
+                        color: white;
+                    }
+                }
+            }
+
+            input{
+                font-size: 40px;
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                border: 0.1px solid rgba(0, 0, 0, 0.128);
+            }
+        }
+
+        button{
+            display: flex;
+            padding: 20px 50px;
+            margin: 0 auto
+        }
+    }
+}

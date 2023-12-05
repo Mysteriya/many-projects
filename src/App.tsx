@@ -9,6 +9,7 @@ import Calculate from "./Pages/calculate/Calculate";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
 import SpeedTest from "./Pages/SpeedTest/SpeedTest";
+import Converter from "./Pages/Converter/Converter";
 
 const App:React.FC = () => {
   return (
@@ -32,6 +33,10 @@ const App:React.FC = () => {
         
         <>
           <Route path="/click" element={<SpeedTest/>}/>
+        </>
+
+        <>
+          <Route path="/convert" element={<Converter/>}/>
         </>
       </Route>
     </Routes>

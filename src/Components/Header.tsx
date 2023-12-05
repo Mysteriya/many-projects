@@ -14,6 +14,7 @@ const Header:React.FC = () => {
         {name: 'Список дел', path: '/todos'},
         {name: 'Калькулятор', path: '/calc'},
         {name: 'Скорость киков', path: '/click'},
+        {name: 'Конвертер валют', path: '/convert'},
     ]
 
   return (
