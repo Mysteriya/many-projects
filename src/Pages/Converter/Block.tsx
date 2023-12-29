@@ -3,13 +3,17 @@ import React from 'react'
 type TypeBlockProps = {
     value: number;
     carrency: string;
-    onChangeValue: (arg: any) => any;
-    setSelectCurrency: (arg: any) => any;
+    onChangeValue: (arg: number) => void;
+    setSelectCurrency: (arg: string) => void;
 }
 
-const Block: React.FC<TypeBlockProps> = ({value,carrency, onChangeValue, setSelectCurrency}) => {
+const Block: React.FC<TypeBlockProps> = ({value, carrency, onChangeValue, setSelectCurrency}) => {
 
     const currencyDefault = ["AUD","AZN","GBP","AMD","AED","USD","EUR"]
+
+    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        onChangeValue(Number(event.target.value))
+    }
 
   return (
     <div className='sideBlock'>
@@ -26,7 +30,7 @@ const Block: React.FC<TypeBlockProps> = ({value,carrency, onChangeValue, setSele
 
         <input
             value={value}
-            onChange={event => onChangeValue(event.target.value)}
+            onChange={event => onChangeInput(event)}
         />
     </div>
   )

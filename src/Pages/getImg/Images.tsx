@@ -5,18 +5,22 @@ import { useSelector } from 'react-redux'
 import { fetchImages, itemsSliceImages, removeItem } from '../../redux/slices/imageSlice'
 import { useAppDispatch } from '../../redux/store'
 
+import { useInView } from 'react-intersection-observer'
+
 function Images() {
-
   const dispatch = useAppDispatch()
-
   const { items } = useSelector(itemsSliceImages)
 
-  const getItems = () => {
-    dispatch(fetchImages())
-  }
+  const {ref, inView} = useInView({
+    threshold: 0.5
+  })
 
   function deleteImage(id: number){
     dispatch(removeItem(id))
+  }
+
+  const getItems = () => {
+    dispatch(fetchImages())
   }
   
   return (
@@ -30,12 +34,20 @@ function Images() {
         <div className='image'>  
           {
             items.map((item: any) =>
-              <div className='img' key={item.id}>
-                <Link to={`/img/${item.id}`}>
-                  <img src={item.url}/>
-                </Link>
+              <div className='img' key={item.id} ref={ref}>
+                {inView === true ? 
+                  <>
+                    <Link to={`/img/${item.id}`}>
+                      <img src={item.url}/>
+                    </Link>
 
-                <button onClick={() => deleteImage(item.id)}>Удалить картинку</button>
+                    <button onClick={() => deleteImage(item.id)}>Удалить картинку</button>
+                  </>
+                  :
+                  <>
+                    <h2>Загрузка...</h2>
+                  </>
+                }
               </div>
             )
           }
