@@ -1,15 +1,16 @@
 import React from "react";
 import { Route, Routes } from "../node_modules/react-router/dist/index";
 
-import Images from "./Pages/getImg/Images";
-import FullImage from "./Pages/getImg/FullImage";
-import TodoList from "./Pages/todoList/TodoList";
+import Images from "./Pages/receiving pictures/index";
+import FullImage from "./Pages/receiving pictures/FullImage";
+import TodoList from "./Pages/todoList/index";
 import TodoFull from "./Pages/todoList/TodoFull";
-import Calculate from "./Pages/calculate/Calculate";
+import Calculate from "./Pages/Сalculator/index";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
-import SpeedTest from "./Pages/SpeedTest/SpeedTest";
-import Converter from "./Pages/Converter/Converter";
+import SpeedTest from "./Pages/SpeedTest/index";
+import Converter from "./Pages/Currency Converter/index";
+import GraphOfFunction from "./Pages/Graph of a function/index";
 
 const App:React.FC = () => {
   return (
@@ -37,6 +38,10 @@ const App:React.FC = () => {
 
         <>
           <Route path="/convert" element={<Converter/>}/>
+        </>
+
+        <>
+          <Route path="/graphOfFunction" element={<GraphOfFunction/>}/>
         </>
       </Route>
     </Routes>

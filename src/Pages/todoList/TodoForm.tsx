@@ -17,7 +17,7 @@ type TypeTodoFormProps = {
   setIsModalActive: (prop: boolean) => any
 }
 
-const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos, setIsModalActive}) => {
+export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos, setIsModalActive}) => {
   const dispatch = useDispatch()
 
   const openWindow = (item: number, index: number) => {
@@ -50,5 +50,3 @@ const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos, setIs
     </div>
   )
 }
-
-export default TodoForm

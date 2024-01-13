@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { itemsSliceTodos } from '../../redux/slices/todoSlice'
 
-const TodoFull: React.FC = () => {
+export const TodoFull: React.FC = () => {
 
     const { id } = useParams()
     const navigate = useNavigate()

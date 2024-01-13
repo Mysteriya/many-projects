@@ -1,7 +1,7 @@
 import React from 'react'
-import Block from './Block'
+import { Block } from './Block'
 
-function Converter() {
+export default function Converter() {
     const [firstInteger, setFirstInteger] = React.useState<number>(0);
     const [secondInteger, setSecondInteger] = React.useState<number>(0);
 
@@ -43,5 +43,3 @@ function Converter() {
     </div>
   )
 }
-
-export default Converter

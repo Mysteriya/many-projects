@@ -1,7 +1,7 @@
 import React from 'react'
 import MyWindow from '../../Components/UI/ModalWindow/MyWindow'
 
-function SpeedTest() {
+export default function SpeedTest() {
 
     let stateRef = React.useRef('passive')
     const limit = 5
@@ -96,5 +96,3 @@ function SpeedTest() {
     </div>
   )
 }
-
-export default SpeedTest

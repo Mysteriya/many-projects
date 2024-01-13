@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(41, 41, 41);
+}
+
+.area{
+    height: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgb(235, 235, 235);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section{
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgb(192, 179, 156);
+    position: relative;
+}
+
+.point{
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid rgb(30, 0, 255);
+    background-color: rgb(21, 5, 255);
+    position: absolute;
+}
+
+.button-graph{
+    padding: 10px;
+    position: absolute;
+    bottom: 70%;
+    left: 10px;
+}

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Mybutton from '../../Components/UI/Button/Mybutton'
 
 
-function FullImage() {
+export default function FullImage() {
   
   const [ item, setItem ] = React.useState<{
     title: string,
@@ -48,5 +48,3 @@ function FullImage() {
     </div>
   )
 }
-
-export default FullImage

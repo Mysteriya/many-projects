@@ -7,7 +7,7 @@ type TypeBlockProps = {
     setSelectCurrency: (arg: string) => void;
 }
 
-const Block: React.FC<TypeBlockProps> = ({value, carrency, onChangeValue, setSelectCurrency}) => {
+export const Block: React.FC<TypeBlockProps> = ({value, carrency, onChangeValue, setSelectCurrency}) => {
 
     const currencyDefault = ["AUD","AZN","GBP","AMD","AED","USD","EUR"]
 
@@ -35,5 +35,3 @@ const Block: React.FC<TypeBlockProps> = ({value, carrency, onChangeValue, setSel
     </div>
   )
 }
-
-export default Block

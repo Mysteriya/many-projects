@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Calculate() {
+export default function Calculate() {
     const [ result, setResult ] = React.useState<number>()
 
     const [ value1, setValue1] = React.useState<number>(0)
@@ -63,5 +63,3 @@ function Calculate() {
     </div>
   )
 }
-
-export default Calculate

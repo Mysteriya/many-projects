@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TodoForm from './TodoForm'
+import { TodoForm } from './TodoForm'
 
 import { useSelector } from 'react-redux'
 import { changeTodo, itemsSliceTodos, removeItems } from '../../redux/slices/todoSlice'
@@ -10,7 +10,7 @@ import { useAppDispatch } from '../../redux/store'
 import MyWindow from '../../Components/UI/ModalWindow/MyWindow'
 import Mybutton from '../../Components/UI/Button/Mybutton'
 
-function TodoList() {
+export default function TodoList() {
     const dispatch = useAppDispatch()
     
     const { sortItems } = useSelector(itemsSliceTodos)
@@ -108,5 +108,3 @@ function TodoList() {
         </div>
     )
 }
-
-export default TodoList

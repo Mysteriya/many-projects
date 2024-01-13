@@ -7,7 +7,7 @@ import { useAppDispatch } from '../../redux/store'
 
 import { useInView } from 'react-intersection-observer'
 
-function Images() {
+export default function Images() {
   const dispatch = useAppDispatch()
   const { items } = useSelector(itemsSliceImages)
 
@@ -15,7 +15,7 @@ function Images() {
     threshold: 0.5
   })
 
-  function deleteImage(id: number){
+  const  deleteImage = (id: number) => {
     dispatch(removeItem(id))
   }
 
@@ -56,5 +56,3 @@ function Images() {
     </div>
   )
 }
-
-export default Images
