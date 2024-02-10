@@ -9,15 +9,17 @@
 
 .Header{
     padding: 25px;
+    width: 100vw;
     background-color: rgb(31, 31, 31);
-
+    position: fixed;
+    z-index: 5;
+    
     .Button-Block{
         .button_home{
             display:inline-flex;
         }
         .button_components{
             display: inline-flex;
-            margin-left: 15%;
         }
 
         button{

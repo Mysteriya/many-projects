@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import imageSlice from "./slices/imageSlice";
+import imageSlice from "./slices/imageSlice/imageSlice";
 import todoSlice from "./slices/todoSlice";
 
 import { useDispatch } from "react-redux";

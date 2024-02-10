@@ -59,6 +59,7 @@ export default function GraphOfFunction() {
       createPointOnArea(pointNegative.x, pointNegative.y, pointNegative.state);
     }, 50);
   };
+  
 
   return (
     <div>

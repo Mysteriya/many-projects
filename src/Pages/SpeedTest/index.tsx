@@ -71,15 +71,17 @@ export default function SpeedTest() {
   return (
     <div>
         <MyWindow setIsModalActive={setIsModalActive} isModalActive={isModalActive}>
-            <h1>Ваша скорость клика: {result} клик/cек</h1>
-            <h2>Вы сделали {bRef.current} кликов за {aRef.current} секунд</h2>
+            <div>
+                <h1>Ваша скорость клика: {result} клик/cек</h1>
+                <h2>Вы сделали {bRef.current} кликов за {aRef.current} секунд</h2>
 
-            <h1 style={{display:'block', textAlign: 'unset', marginTop: '30px', fontSize: '50px', }}>Ваш ранг {definitionOfYou().toUpperCase()}</h1>
+                <h1 style={{display:'block', textAlign: 'unset', marginTop: '30px', fontSize: '50px', }}>Ваш ранг {definitionOfYou().toUpperCase()}</h1>
 
-            <button 
-                onClick={resetTime}
-                className='styleButton'
-            >Провести повторный замер</button>
+                <button 
+                    onClick={resetTime}
+                    className='styleButton'
+                >Провести повторный замер</button>
+            </div>
         </MyWindow>
 
         <div className='blockTimeCount'>
