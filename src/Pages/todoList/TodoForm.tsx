@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-import { getID, setCount } from '../../redux/slices/todoSlice'
+import { getID, setCount } from '../../redux/slices/todoSlice/todoSlice'
 
 type TypeTodoFormProps = {
   removeTodos: (id: number) => void
@@ -41,7 +41,9 @@ export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos
           </Link>
       </div>
 
+    <div className='description-task'>
       <p className='text'>{item.body}</p>
+    </div>
 
       <div className='todo-button'>
         <button onClick={() => openWindow(item.id, number)}>Редактировать имя/описание задачи</button>

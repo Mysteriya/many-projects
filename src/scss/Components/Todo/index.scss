@@ -1,6 +1,7 @@
 .todo-content{
-    margin: 50px;
-
+    width: 100%;
+    height: 100%;
+    
     .todoButtonModalBack{
         text-align: start;
     }
@@ -13,8 +14,13 @@
     }
 
     .todo-block{
-        margin-top: 30px;
+        width: 94%;
+        margin: 20px;
 
+        position: relative;
+        top: 20vh;
+
+        margin-top: 60px;
         padding: 20px;
 
         border: 5px solid rgb(84, 84, 217);
@@ -66,52 +72,78 @@
             margin-top: 15px;
         }
     }
+}
 
     .control-block{
+        display: flex;
+        margin: 10px;
+
+        position: relative;
+        top: 8vw;
+
+        justify-content: space-between;
 
         .todo-input{
 
             .todo-col{
-                margin-top: 20px;
-    
                 input{
-                    padding: 5px 30px;
-    
-                    border-radius: 6px;
+                    padding: 5px 50px;
+                    border-radius: 5px;
                 }
-
                 p{
                     color: white;
                 }
             }
     
             .todo-button{
-                margin-top: 20px;
-    
-                padding: 10px 20px;
-            }
-        }
+                padding: 10px;
+                border: none;
 
-        .selected-block{
-            text-align: end;
+                margin-top: 10px;
+
+                background: -webkit-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+                background: -moz-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+                background: linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+
+                &:hover{
+                    border: 2px white dashed;
+                }
+            }
         }
 
         .search-block{
-
-            text-align: center;
+            align-self: end;
+            position: relative;
+            right: 2vw;
 
             input{
                 padding: 10px 30px;
+                transition: all 0.3s;
 
-                color: black;
+                &:focus{
+                    box-shadow: 5px 5px 5px 5px rgb(25, 25, 25);
+                }
             }
         }
     }
-}
+
+    .task-list{
+        position: relative;
+        top:10vw;
+        h1{
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+    }
+
 
 .todo-full{
     padding: 20px;
 
+    position: relative;
+    top: 15vh;
+    
+    color: white;
 
     .todo-blockFull{
         margin-top: 30px;

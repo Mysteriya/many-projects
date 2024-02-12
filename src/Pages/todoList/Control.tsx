@@ -1,10 +1,7 @@
 import React from 'react'
-
-import { addNewTodo, filterItems, searchItem } from '../redux/slices/todoSlice'
-
-import MySelect from './UI/Select/MySelect'
-
-import { useAppDispatch } from '../redux/store'
+import { addNewTodo, filterItems, searchItem } from '../../redux/slices/todoSlice/todoSlice'
+import MySelect from '../../Components/UI/Select/MySelect'
+import { useAppDispatch } from '../../redux/store'
 
 type TypeValueProps = {
     title: string,
@@ -18,7 +15,6 @@ interface IControlProps {
         body: string,
     }, 
 
-    // setSelectItems: () => string
     setValue: (text: TypeValueProps) => void
     setSelecteditems: (text: string) => void
 }
@@ -93,6 +89,17 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
             </button>
         </div>
 
+        <div className='search-block'>
+            <input 
+                value={searchValue}
+                onChange={event => setSearchValue(event.target.value)}
+
+                placeholder='Строка поиска...'
+
+                type='text'
+            />
+        </div>
+
         <div className='selected-block'>
             <MySelect
                 defaultvalue="Соритровака по"
@@ -106,18 +113,6 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
                 sort={selectedItems}
             />
         </div>
-
-        <div className='search-block'>
-            <input 
-                value={searchValue}
-                onChange={event => setSearchValue(event.target.value)}
-
-                placeholder='Строка поиска...'
-
-                type='text'
-            />
-        </div>
-
     </div>
   )
 }

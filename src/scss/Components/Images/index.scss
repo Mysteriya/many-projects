@@ -1,17 +1,11 @@
-body{
-    background-color: rgb(71, 71, 71);
-}
-
 .content{
-
     .content-block{
-        display:inline-flex;
-
-        .block{
+        .block{ 
             position: fixed;
+            left: 0;
 
-            height: 100vw;
-            width: 40vh;
+            height: 100vh;
+            width: 23vw;
     
             background-color: rgba(99, 99, 99, 0.422);
     
@@ -35,19 +29,24 @@ body{
                 }
     
     
-                position: absolute;
-    
+                position: relative;
                 top: 50vh;
                 left: 5vw;
             }
         }
     
         .image{
+            width: 700px;
+
+
             position: relative;
             left: 40vw;
             top: 10vh;
 
             .img{
+                width: 700px;
+                height: 600px;
+
                 transform: scale(0.9);
                 transition: 0.1s;
 
@@ -65,7 +64,6 @@ body{
                     transition: all 0.2s;
                     background-color: white;
                     border: none;
-                    // padding: 40px;
 
                     svg{
                         width: 100px;

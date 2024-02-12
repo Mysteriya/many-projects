@@ -1,38 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState } from "../store";
-
-type TypeItems = {
-  title: string,
-  body: string,
-  id: number,
-  userId: number
-}
-type TypeSortItems = {
-  title: string,
-  body: string,
-  id: number,
-  userId: number
-}
-
-type TypeEditTodo = {
-  title?: string
-  body?: string
-  id?: number
-}
-
-type TypeIDTodo = {
-  id: number,
-  index: number
-}
-
-export interface IInitialStateTodos {
-  items: TypeItems[],
-  sortItems: TypeSortItems[],
-  
-  count: number,
-  itemID: TypeIDTodo,
-}
+import { RootState } from "../../store";
+import { IInitialStateTodos, TypeEditTodo, TypeItems } from "./type";
 
 const initialState: IInitialStateTodos = {
   items: [],
@@ -73,6 +42,8 @@ const todoSlice = createSlice({
 
       let itemsParse = JSON.parse(JSON.stringify(state.items))
 
+      console.log(itemsParse)
+
       const sortItems = [...itemsParse].sort((a: any, b: any): number =>
         a[sort].localeCompare(b[sort]) 
       );
@@ -96,7 +67,6 @@ const todoSlice = createSlice({
     },
 
     changeTodo(state, action: PayloadAction<TypeEditTodo>){
-      
       const items = JSON.parse(JSON.stringify(state.items))
       const index = state.itemID.index
       

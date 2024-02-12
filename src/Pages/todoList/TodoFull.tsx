@@ -5,7 +5,7 @@ import Mybutton from '../../Components/UI/Button/Mybutton'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { itemsSliceTodos } from '../../redux/slices/todoSlice'
+import { itemsSliceTodos } from '../../redux/slices/todoSlice/todoSlice'
 
 export const TodoFull: React.FC = () => {
 
@@ -32,11 +32,9 @@ export const TodoFull: React.FC = () => {
     }, [id])
 
     React.useEffect(() => {
-
         async function fetchTodos(){
             try{
-                const result = JSON.parse(localStorage.getItem('data') || '')    
-                
+                const result = JSON.parse(localStorage.getItem('data') || '')         
                 const element = await result.find((elem: any) => elem.id === Number(id))
 
                 setItem(element)
@@ -48,7 +46,6 @@ export const TodoFull: React.FC = () => {
         }
 
         fetchTodos()
-
     }, [id])
 
     if(!item){
