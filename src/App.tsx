@@ -8,11 +8,11 @@ import TodoFull from "./Pages/todoList/TodoFull";
 import Calculate from "./Pages/Сalculator/index";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
-import SpeedTest from "./Pages/SpeedTest/index";
 import Converter from "./Pages/Currency Converter/index";
 import GraphOfFunction from "./Pages/Graph of a function/index";
+import SpeedTest from "./Pages/SpeedTest";
 
-const App:React.FC = () => {
+const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/home" element={<Home/>}/>

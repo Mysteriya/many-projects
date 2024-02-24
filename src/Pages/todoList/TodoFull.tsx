@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { itemsSliceTodos } from '../../redux/slices/todoSlice/todoSlice'
+import { RootState } from '../../redux/store'
 
 export const TodoFull: React.FC = () => {
 
@@ -13,6 +14,7 @@ export const TodoFull: React.FC = () => {
     const navigate = useNavigate()
 
     const { items, count } = useSelector(itemsSliceTodos)
+    const {back, errorText, loading} = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.full)
 
     const isMounted = React.useRef(false)
 
@@ -40,7 +42,7 @@ export const TodoFull: React.FC = () => {
                 setItem(element)
                 
             }catch(error){
-                alert("Произошла ошибка")
+                alert(`${errorText}: ${error}`)
                 navigate('/')
             }
         }
@@ -50,14 +52,14 @@ export const TodoFull: React.FC = () => {
 
     if(!item){
         return(
-            <div>Загрузка...</div>
+            <div>{loading}</div>
         )
     }
 
   return (
     <div className='todo-full'>
         <Link to={'/todos/'}>
-            <Mybutton>Вернуться обратно</Mybutton>
+            <Mybutton>{back}</Mybutton>
         </Link>
 
         <div className='todo-blockFull'>

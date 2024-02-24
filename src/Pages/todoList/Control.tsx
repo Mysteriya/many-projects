@@ -1,7 +1,8 @@
 import React from 'react'
 import { addNewTodo, filterItems, searchItem } from '../../redux/slices/todoSlice/todoSlice'
 import MySelect from '../../Components/UI/Select/MySelect'
-import { useAppDispatch } from '../../redux/store'
+import { RootState, useAppDispatch } from '../../redux/store'
+import { useSelector } from 'react-redux'
 
 type TypeValueProps = {
     title: string,
@@ -21,8 +22,8 @@ interface IControlProps {
 
 
 const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, value, setValue }) => {
-
     const dispatch = useAppDispatch()
+    const {addTask, inputDescription, inputName, lineSearch, typeSortText, typeSortDescriptionText, typeSortNameText} = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.control)
 
     const [ searchValue, setSearchValue ] = React.useState('')
 
@@ -62,7 +63,7 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
     <div className='control-block'>
         <div className='todo-input'>
             <div className='todo-col'>
-                <p>Введите имя задачи</p>
+                <p>{inputName}</p>
                 <input 
                     value={value.title}
                     onChange={(event) => setValue({...value, title: event.target.value})}
@@ -72,7 +73,7 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
             </div>
 
             <div className='todo-col'>
-                <p>Введите описание задачи</p>
+                <p>{inputDescription}</p>
                 <input
                     value={value.body}
                     onChange={(event) => setValue({...value, body: event.target.value})}
@@ -85,7 +86,7 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
                 className='todo-button'
                 onClick={() => addNewTodos()}
             >
-                Добавить задчу
+                {addTask}
             </button>
         </div>
 
@@ -94,7 +95,7 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
                 value={searchValue}
                 onChange={event => setSearchValue(event.target.value)}
 
-                placeholder='Строка поиска...'
+                placeholder={lineSearch}
 
                 type='text'
             />
@@ -102,15 +103,15 @@ const Control:React.FC<IControlProps> = ({ selectedItems, setSelecteditems, valu
 
         <div className='selected-block'>
             <MySelect
-                defaultvalue="Соритровака по"
+                defaultValue={typeSortText}
 
                 options={[
-                    {name: 'Сортировака по названию', value: 'title'},
-                    {name: 'Соритровка по описанию', value: 'body'}
+                    {name: typeSortDescriptionText, value: 'title'},
+                    {name: typeSortNameText, value: 'body'}
                 ]}
 
                 setSelect={sortItems}
-                sort={selectedItems}
+                value={selectedItems}
             />
         </div>
     </div>

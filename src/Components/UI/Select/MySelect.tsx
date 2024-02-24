@@ -3,25 +3,28 @@ import React from 'react'
 import classes from './MySelect.module.scss'
 
 type TypeMySelectProps = {
-    options: object[],
+    options: typeSelect[],
 
-    defaultvalue: string,
-    sort: string,
+    defaultValue: string,
+    value?: string,
 
     setSelect: (event: string) => void,
 }
 
+type typeSelect = {
+    name: string;
+    value: string
+}
 
-const MySelect:React.FC<TypeMySelectProps> = ({options, defaultvalue, sort, setSelect}) => {
-
+const MySelect:React.FC<TypeMySelectProps> = ({options, defaultValue, value, setSelect}) => {
   return (
     <select className={classes.root}
-        value={sort}
+        value={value}
         onChange={event => setSelect(event.target.value)}
     >
-        <option disabled>{defaultvalue}</option>
+        <option disabled>{defaultValue}</option>
         
-        {options.map((option: any) => 
+        {options.map((option) => 
             <option 
                 className={classes.name}
 

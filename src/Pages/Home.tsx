@@ -1,7 +1,10 @@
 import React from 'react'
 import Header from '../Components/Header'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 const Home: React.FC = () => {
+  const {buttonText, text1, text2}  = useSelector((state: RootState) => state.languageSlice.items.page!.home)
 
   const [is, setIs] = React.useState(false)
 
@@ -11,14 +14,17 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header/>
-      {is && 
-        <>
-          <h1 style={{color: "red", marginTop: 15}}>Строянские кони на вашем устройстве</h1>
-          <h1 style={{color: "red"}}>Я знаю, где ты живешь</h1>
-        </>
-      }
-      <button onClick={() => colorChange()}>Запустить троянского коня</button>
+      <Header/> 
+
+      <div style={{marginTop: '100px'}}>
+        {is ? 
+          <div>
+            <h1 style={{color: "red"}}>{text1} <br/> {text2}</h1> 
+          </div>
+          :
+          <button onClick={() => colorChange()}>{buttonText}</button>
+        }
+      </div>
     </>
   )
 }

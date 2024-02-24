@@ -9,6 +9,8 @@ import { TypeImageState } from '../../redux/slices/imageSlice/type'
 export default function Images() {
   const dispatch = useAppDispatch()
   const items = useSelector((state: RootState) => state.imageSlice.items)
+  
+  const {buttonText1} = useSelector((state: RootState) => state.languageSlice.items.page!.receivingPictures)
 
   const getItems = () => {
     dispatch(fetchImages())
@@ -18,7 +20,7 @@ export default function Images() {
     <div className='content'>
       <div className='content-block'>
         <div className='block'>
-          <Mybutton onClick={() => getItems()}>Получить все картинки</Mybutton>
+          <Mybutton onClick={() => getItems()}>{buttonText1}</Mybutton>
         </div>
         <div className='image'>  
           {items.map((item: TypeImageState) =>

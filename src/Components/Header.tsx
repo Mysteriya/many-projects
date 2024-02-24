@@ -1,42 +1,58 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import Mybutton from "./UI/Button/Mybutton";
+
+import img  from '../static/f16a0d86a5711bcc36aa8c59b9ab6ffd.png'
+import Settings from "./Settings/Settings";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const Header:React.FC = () => {
+    const [state, setState] = React.useState(false)
 
-    type TypeButtonArray = {
+    const {backMainPage, calculator, converterCurrently, graphOfFunction, receivingPictures, speedClickTest, taskList} = useSelector((state: RootState) => state.languageSlice.items.components!.header)
+
+    type TypeButtonHader = {
         name: string,
         path: string
     }
 
-
-    const button: TypeButtonArray[] = [
-        {name: 'Получить картинки', path: '/img'},
-        {name: 'Список дел', path: '/todos'},
-        {name: 'Калькулятор', path: '/calc'},
-        {name: 'Скорость киков', path: '/click'},
-        {name: 'Конвертер валют', path: '/convert'},
-        {name: 'График функции', path: '/graphOfFunction'},
+    const button: TypeButtonHader[] = [
+        {name: receivingPictures, path: '/img'},
+        {name: taskList, path: '/todos'},
+        {name: calculator, path: '/calc'},
+        {name: speedClickTest, path: '/click'},
+        {name: converterCurrently, path: '/convert'},
+        {name: graphOfFunction, path: '/graphOfFunction'},
     ]
 
   return (
     <>
         <div className="Header">
             <div className="Button-Block">
-                <div className="button_home">
+                <div className="buttonButton__Main">
                     <Link to={'/home'}>
-                        <button>Вернуться на главную страницу</button>
+                        <Mybutton>{backMainPage}</Mybutton>
                     </Link>
                 </div>
                 
-                <div className="button_components">
-                    {button.map((elem: TypeButtonArray) => 
+                <div>
+                    {button.map((elem: TypeButtonHader) => 
                         <Link to={elem.path} key={elem.name}>
-                            <button>{elem.name}</button>
+                            <Mybutton>{elem.name}</Mybutton>
                         </Link>      
                     )}
                 </div>
-            </div>
-            
+
+                <div className="profile__button">
+                    <img  
+                        onClick={() => setState(true)}
+                        src={img}
+                    />
+
+                    <Settings state={state} setState={setState}/>
+                </div>
+            </div>            
         </div>
 
         <Outlet/>

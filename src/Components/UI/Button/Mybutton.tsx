@@ -3,7 +3,7 @@ import React from 'react'
 import classes from './MyButton.module.scss'
 
 interface IMybuttonProps {
-  children: string;
+  children: any;
   onClick?: () => void;
 }
 

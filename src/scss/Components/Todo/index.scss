@@ -1,6 +1,6 @@
 .todo-content{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     
     .todoButtonModalBack{
         text-align: start;
@@ -74,42 +74,43 @@
     }
 }
 
-    .control-block{
-        display: flex;
-        margin: 10px;
+.control-block{
+    display: flex;
 
-        position: relative;
-        top: 8vw;
+    position: relative;
+    top: 7vw;
+    padding: 20px;
 
-        justify-content: space-between;
+    justify-content: space-between;
 
-        .todo-input{
-
-            .todo-col{
-                input{
-                    padding: 5px 50px;
-                    border-radius: 5px;
-                }
-                p{
-                    color: white;
-                }
+    .todo-input{
+        .todo-col{
+            input{
+                width: 250px;
+                height: 25px;
+                
+                border-radius: 5px;
             }
-    
-            .todo-button{
-                padding: 10px;
-                border: none;
-
-                margin-top: 10px;
-
-                background: -webkit-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
-                background: -moz-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
-                background: linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
-
-                &:hover{
-                    border: 2px white dashed;
-                }
+            p{
+                color: white;
             }
         }
+
+        .todo-button{
+            padding: 10px;
+            border: none;
+
+            margin-top: 10px;
+
+            background: -webkit-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+            background: -moz-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+            background: linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+
+            &:hover{
+                border: 2px white dashed;
+            }
+        }
+    }
 
         .search-block{
             align-self: end;
@@ -130,11 +131,12 @@
     .task-list{
         position: relative;
         top:10vw;
-        h1{
-            text-align: center;
-            color: rgb(255, 255, 255);
-        }
+
+    h1{
+        text-align: center;
+        color: rgb(255, 255, 255);
     }
+}
 
 
 .todo-full{

@@ -1,25 +1,21 @@
 import React from 'react'
-
 import classes from './MyWindow.module.scss'
 
 type TypeMyWindowProp = {
-    children: any
-
-    isModalActive: boolean
-    setIsModalActive: (prop: boolean) => void
+    children: React.ReactNode;
+    isWindow?: boolean
 }
 
-const MyWindow:React.FC<TypeMyWindowProp> = (props) => {
-
+const MyWindow:React.FC<TypeMyWindowProp> = ({children, isWindow}) => {
   return (
     <>
-        { props.isModalActive &&
-            <div 
+        { isWindow &&
+            <div
                 className={classes.background}
             >
                 <div className={classes.window} onClick={event => event.stopPropagation()}>
                     <div className={classes.content}>
-                        {props.children}
+                        {children}
                     </div>
                 </div>
             </div>

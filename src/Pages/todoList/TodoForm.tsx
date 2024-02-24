@@ -1,8 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Link } from 'react-router-dom'
 import { getID, setCount } from '../../redux/slices/todoSlice/todoSlice'
+import { RootState } from '../../redux/store'
 
 type TypeTodoFormProps = {
   removeTodos: (id: number) => void
@@ -19,6 +20,8 @@ type TypeTodoFormProps = {
 
 export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos, setIsModalActive}) => {
   const dispatch = useDispatch()
+
+  const {editNameAndDescription, removeTask} = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.form)
 
   const openWindow = (item: number, index: number) => {
     setIsModalActive(true)
@@ -37,7 +40,7 @@ export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos
           <strong>{number}.</strong>
 
           <Link to={`/todos/${item.id}`}>
-              <p onClick={() => {dispatch(setCount(number))}}>{item.title}</p>
+            <p onClick={() => {dispatch(setCount(number))}}>{item.title}</p>
           </Link>
       </div>
 
@@ -46,8 +49,8 @@ export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos
     </div>
 
       <div className='todo-button'>
-        <button onClick={() => openWindow(item.id, number)}>Редактировать имя/описание задачи</button>
-        <button onClick={() => removeTodos(item.id)}>Удалить задачу</button>
+        <button onClick={() => openWindow(item.id, number)}>{editNameAndDescription}</button>
+        <button onClick={() => removeTodos(item.id)}>{removeTask}</button>
       </div>
     </div>
   )

@@ -16,6 +16,7 @@ export default function TodoList() {
     const dispatch = useAppDispatch()
     
     const { sortItems } = useSelector((state: RootState) => state.todoSlice)
+    const {ChangeDescripton, ChangeName, ListTaskVoid, apply, exit, windowEditNameAndDescription} = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.main)
 
     const [ value, setValue ] = React.useState<{
         title: string;
@@ -28,7 +29,6 @@ export default function TodoList() {
     }>({title: '', body: ''})
 
     const [ selectedItems, setSelecteditems ] = React.useState<string>('')
-
     const [ isModalActive, setIsModalActive ] = React.useState<boolean>(false)
 
     const editTodo = (props: {title: string, body: string}) => {
@@ -42,7 +42,6 @@ export default function TodoList() {
 
     const functionButton = () => {   
         editTodo(changeValue)
-
         setChangeValue({title: '', body: ''})
 
         setIsModalActive(false)
@@ -54,16 +53,16 @@ export default function TodoList() {
 
     return (
         <div className='todo-content'>
-            <MyWindow setIsModalActive={setIsModalActive} isModalActive={isModalActive}>
+            <MyWindow isWindow={isModalActive}>
                 <div>
-                    <h2>Окно редактирвоания имени и описания</h2>
+                    <h2>{windowEditNameAndDescription}</h2>
 
                     <div className='todoButtonModalBack'>
-                        <Mybutton onClick={() => setIsModalActive(false)}>Выйти</Mybutton>
+                        <Mybutton onClick={() => setIsModalActive(false)}>{exit}</Mybutton>
                     </div>
 
                     <div className='todo-col'>
-                        <p>Изменить имя задачи</p>
+                        <p>{ChangeName}</p>
                         <input 
                             value={changeValue.title}
                             onChange={(event) => setChangeValue({...changeValue, title: event.target.value})}
@@ -73,7 +72,7 @@ export default function TodoList() {
                     </div>
 
                     <div className='todo-col'>
-                        <p>Изменить описание задачи</p>
+                        <p>{ChangeDescripton}</p>
                         <input
                             value={changeValue.body}
                             onChange={(event) => setChangeValue({...changeValue, body: event.target.value})}
@@ -83,7 +82,7 @@ export default function TodoList() {
                     </div>
 
                     <div className='todoButtonModalAssing'>
-                        <Mybutton onClick={() => functionButton()}>Применить изменения</Mybutton>
+                        <Mybutton onClick={() => functionButton()}>{apply}</Mybutton>
                     </div>
                 </div>
             </MyWindow>
@@ -98,7 +97,7 @@ export default function TodoList() {
 
             {!sortItems.length ?
                 <div className='task-list'>
-                    <h1>Список заданий пустой</h1>
+                    <h1>{ListTaskVoid}</h1>
                 </div>
 
                 :

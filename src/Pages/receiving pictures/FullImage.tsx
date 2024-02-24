@@ -3,9 +3,12 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import Mybutton from '../../Components/UI/Button/Mybutton'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
 
 
 export default function FullImage() {
+  const {errorAlert, buttonBack, loading} = useSelector((state: RootState) => state.languageSlice.items.page!.receivingPictures)
   
   const [ item, setItem ] = React.useState<{
     title: string,
@@ -23,7 +26,7 @@ export default function FullImage() {
 
       }catch(error){
         console.log(error)
-        alert('Пицца не найдена')
+        alert({errorAlert})
         navigate('/')
       }
     }
@@ -32,7 +35,7 @@ export default function FullImage() {
   }, [])
 
   if(!item){
-    return <h1>Загрузка...</h1>
+    return <h1>{loading}</h1>
   }
 
   return (
@@ -43,7 +46,7 @@ export default function FullImage() {
       </div>
 
       <Link to={'/img'}>
-        <Mybutton>Обратно</Mybutton>
+        <Mybutton>{buttonBack}</Mybutton>
       </Link>
     </div>
   )

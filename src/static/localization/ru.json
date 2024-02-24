@@ -1,0 +1,99 @@
+{
+    "id": "ru",
+
+    "page": {
+        "home": {
+            "buttonText": "Запустить троянского коня",
+            "text1": "Строянские кони на вашем устройстве",
+            "text2": "Я знаю, где ты живешь"
+        },
+        "receivingPictures": {
+            "buttonText1": "Получить все картинки",
+            "buttonBack": "Обратно",
+            "loading": "Загрузка . . .",
+            "errorAlert": "Картинка не найдена"
+        },
+        "speedTest": {
+            "grade": {
+                "turtle": "черепаха",
+                "deer": "олень",
+                "tiger": "тигр",
+                "wolf": "волчара",
+                "racingCar": "гоночный болид",
+                "cheat": "ТЫ ИГРАЕШЬ С ЧИТАМИ!!!!!!!!!!!"        
+            },
+            "clickSpeed": "Ваша скорость клика",
+            "clickSec": "клик/cек",
+            "dialed": "Вы сделали",
+            "clickText": "кликов за",
+            "sec": "секунд",
+            "youGrade": "Ваш ранг",
+            "againFroze": "Провести повторный замер",
+            "quantity": "Кол.во кликов",
+            "timeText": "Время"
+        },
+        "todoList": {
+            "main":{
+                "windowEditNameAndDescription": "Окно редактирвоания имени и описания",
+                "exit": "Выйти",
+                "ChangeName": "Изменить имя задачи",
+                "ChangeDescripton": "Изменить имя задачи",
+                "apply": "Применить изменения",
+                "ListTaskVoid": "Список заданий пустой"
+            },
+            "control": {
+                "inputName": "Изменить имя задачи",
+                "inputDescription": "Введите описание задачи",
+                "addTask": "Добавить задчу",
+                "lineSearch": "Строка поиска...",
+
+                "typeSortText": "Соритровака по",
+                "typeSortNameText": "Сортировака по названию",
+                "typeSortDescriptionText": "Соритровка по описанию"
+            },
+            "form": {
+                "editNameAndDescription": "Редактировать имя/описание задачи",
+                "removeTask":"Удалить задачу"
+            },
+            "full": {
+                "errorText": "Произошла ошибка",
+                "loading": "Загрузка . . .",
+                "back": "Вернуться обратно"
+            }
+        }
+    },
+
+    "components": {
+        "settings": {
+            "changeAccount": "Сменить аккаунт",
+            "accauntSettings": "Настройки аккаунта",
+            "exit": "Выйти",
+            "controlDate": "Управление данными",
+            "confidentiality": "Конфиденциальность",
+            "changeTheme": "Сменить тему",
+            "changeLanguage": "Сменить язык",
+            "settings": "Настройки",
+            "about": "Об Проекте",
+            "referenceMaterial": "Справочный метериал"
+        },
+        "header": {
+            "backMainPage": "Вернуться на гравную страницу",
+            "receivingPictures": "Получить картинки",
+            "taskList": "Список дел",
+            "calculator": "Калькудятор",
+            "speedClickTest": "Скорость киков",
+            "converterCurrently": "Конверетр валют",
+            "graphOfFunction": "График функции"
+        }
+    },
+    "massageError": {
+        "errortext1": "Потом заработает", 
+        "errortext2": "Оно пока не работает", 
+        "errortext3": "Извините, но оно оно не работает",
+        "errortext4": "Скоро будет. Наверное",
+        "errortext5": "Оно еще не работает",
+        "errortext6": "Подождите, пока оно не заработает",
+        "errortext7": "Скоро будет готово",
+        "errortext8": "Не ждите"
+    }  
+}

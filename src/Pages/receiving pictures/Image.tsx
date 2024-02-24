@@ -1,8 +1,9 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer'
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../redux/store';
+import { RootState, useAppDispatch } from '../../redux/store';
 import { removeItem } from '../../redux/slices/imageSlice/imageSlice';
+import { useSelector } from 'react-redux';
 
 interface IImageProps {
     id: number;
@@ -11,6 +12,7 @@ interface IImageProps {
 
 const Image: React.FC<IImageProps> = ({id, url}) => {
     const dispatch = useAppDispatch()
+    const { loading } = useSelector((state: RootState) => state.languageSlice.items.page!.receivingPictures)
 
     const {ref, inView} = useInView({
         threshold: 0.1
@@ -28,7 +30,7 @@ const Image: React.FC<IImageProps> = ({id, url}) => {
                 :
                 <>
                     <div style={{width:600, height:600}}>
-                        <h1 style={{textAlign: "center"}}>Загрузка...</h1>
+                        <h1 style={{textAlign: "center"}}>{loading}</h1>
                     </div>
                 </>
             }

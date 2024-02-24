@@ -1,7 +1,10 @@
 import React from 'react'
 import MyWindow from '../../Components/UI/ModalWindow/MyWindow'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
 
 export default function SpeedTest() {
+    const {againFroze, clickText, clickSec, clickSpeed, dialed, grade, quantity, sec, timeText, youGrade} = useSelector((state: RootState) => state.languageSlice.items.page!.speedTest)
 
     let stateRef = React.useRef('passive')
     const limit = 5
@@ -12,7 +15,7 @@ export default function SpeedTest() {
     const [click, setClick] = React.useState(0)
     const [result, setResult] = React.useState(0)
 
-    const [isModalActive, setIsModalActive] = React.useState(false)
+    const [isWindow, setIsWindow] = React.useState(false)
 
     const startTest = React.useCallback(() => {
         const state = stateRef.current
@@ -33,7 +36,7 @@ export default function SpeedTest() {
 
                     setResult(bRef.current / aRef.current)
                     
-                    setIsModalActive(true)
+                    setIsWindow(true)
                 }
             }, 1000)
         }
@@ -45,48 +48,48 @@ export default function SpeedTest() {
         setClick(bRef.current = 0)
         setTime(aRef.current = 0)
 
-        setIsModalActive(false)
+        setIsWindow(false)
     }
     const definitionOfYou = () => {
         if (result <= 4){
-            return "черепаха";
+            return grade.turtle;
 
         }if (result >= 5 && result <= 6) {
-            return "олень";
+            return grade.deer;
 
         }if (result >= 7 && result <= 9) {
-            return "тигр";
+            return grade.tiger
 
         }if (result >= 10 && result <= 12){
-            return "волчара";
+            return grade.wolf;
 
         }if (result >= 13 && result <= 20){
-            return "гоночный болид"
+            return grade.racingCar
 
         }else {
-            return "ТЫ ИГРАЕШЬ С ЧИТАМИ!!!!!!!!!!!"
+            return grade.cheat
         }
     }
 
   return (
     <div>
-        <MyWindow setIsModalActive={setIsModalActive} isModalActive={isModalActive}>
+        <MyWindow isWindow={isWindow}>
             <div>
-                <h1>Ваша скорость клика: {result} клик/cек</h1>
-                <h2>Вы сделали {bRef.current} кликов за {aRef.current} секунд</h2>
+                <h1>{clickSpeed}: {result} {clickSec}</h1>
+                <h2>{dialed} {bRef.current} {clickText} {aRef.current} {sec}</h2>
 
-                <h1 style={{display:'block', textAlign: 'unset', marginTop: '30px', fontSize: '50px', }}>Ваш ранг {definitionOfYou().toUpperCase()}</h1>
+                <h1 style={{display:'block', textAlign: 'unset', marginTop: '30px', fontSize: '50px', }}>{youGrade}: {definitionOfYou().toUpperCase()}</h1>
 
                 <button 
                     onClick={resetTime}
                     className='styleButton'
-                >Провести повторный замер</button>
+                >{againFroze}</button>
             </div>
         </MyWindow>
 
         <div className='blockTimeCount'>
             <div>
-                <h1>Кол.во кликов: {click}</h1> <h1>/</h1> <h1>Время: {time}</h1>
+                <h1>{quantity}: {click}</h1> <h1>/</h1> <h1>{timeText}: {time}</h1>
             </div>
         </div>
 

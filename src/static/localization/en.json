@@ -1,0 +1,99 @@
+{
+    "id": "en",
+
+    "page": {
+        "home": {
+            "buttonText": "Launch a Trojan horse",
+            "text1": "Trojan horses on your device",
+            "text2": "I know where you live"
+        },
+        "receivingPictures": {
+            "buttonText1": "Get all pictures",
+            "buttonBack": "Back",
+            "loading": "Loading . . .",
+            "errorAlert": "Picture not found"
+        },
+        "speedTest": {
+            "grade": {
+                "turtle": "turtle",
+                "deer": "deer",
+                "tiger": "tiger",
+                "wolf": "wolf",
+                "racingCar": "racing car",
+                "cheat": "YOU ARE PLAYING WITH CHEATS!!!!!!!!!!!"        
+            },
+            "clickSpeed": "Your click rate",
+            "clickSec": "click/sec",
+            "dialed": "You made",
+            "clickText": "clicks in",
+            "sec": "seconds",
+            "youGrade": "Your rank",
+            "againFroze": "Re-measure",
+            "quantity": "Number of clicks",
+            "timeText": "time"
+        },
+        "todoList": {
+            "main":{
+                "windowEditNameAndDescription": "Window for editing name and description",
+                "exit": "Exit",
+                "ChangeName": "Change task name",
+                "ChangeDescripton": "Change task description",
+                "apply": "Apply changes",
+                "ListTaskVoid": "The list of tasks is empty"
+            },
+            "control": {
+                "inputName": "Change task name",
+                "inputDescription": "Change task description",
+                "addTask": "Add a task",
+                "lineSearch": "Search line...",
+
+                "typeSortText": "Sort by",
+                "typeSortNameText": "Sort by name",
+                "typeSortDescriptionText": "Sort by description"
+            },
+            "form": {
+                "editNameAndDescription": "Edit task name/description",
+                "removeTask":"Delete task"
+            },
+            "full": {
+                "errorText": "An error has occurred",
+                "loading": "Loading . . .",
+                "back": "Go back"
+            }
+        }
+    },
+
+    "components": {
+        "settings": {
+            "changeAccount": "Change account",
+            "accauntSettings": "account settings",
+            "exit": "Exit",
+            "controlDate": "Data management",
+            "confidentiality": "Confidentiality",
+            "changeTheme": "Change theme",
+            "changeLanguage": "Change language",
+            "settings": "Settings",
+            "about": "About the Project",
+            "referenceMaterial": "Reference material"
+        },
+        "header": {
+            "backMainPage": "Go back to main page",
+            "receivingPictures": "Get pictures",
+            "taskList": "To-do list",
+            "calculator": "Calculator",
+            "speedClickTest": "Kick speed",
+            "converterCurrently": "Currency Converter",
+            "graphOfFunction": "Graph of a function"
+        }
+    },
+    "massageError": {
+        "errortext1": "Потом заработает", 
+        "errortext2": "Оно пока не работает", 
+        "errortext3": "Извините, но оно оно не работает",
+        "errortext4": "Скоро будет. Наверное",
+        "errortext5": "Оно еще не работает",
+        "errortext6": "Подождите, пока оно не заработает",
+        "errortext7": "Скоро будет готово",
+        "errortext8": "Не ждите"
+    }  
+}

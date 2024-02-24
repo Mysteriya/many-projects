@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { IInitialStateTodos, TypeEditTodo, TypeItems } from "./type";
 
-const initialState: IInitialStateTodos = {
+export const initialState: IInitialStateTodos = {
   items: [],
   sortItems: [],
 
@@ -41,8 +41,6 @@ const todoSlice = createSlice({
       const sort = actions.payload;
 
       let itemsParse = JSON.parse(JSON.stringify(state.items))
-
-      console.log(itemsParse)
 
       const sortItems = [...itemsParse].sort((a: any, b: any): number =>
         a[sort].localeCompare(b[sort]) 
@@ -86,8 +84,5 @@ const todoSlice = createSlice({
 
 export const itemsSliceTodos = (state: RootState) => state.todoSlice
 
-
-export const { removeItems, addNewTodo, setCount, filterItems, searchItem, changeTodo, getID } =
-  todoSlice.actions;
-
+export const { removeItems, addNewTodo, setCount, filterItems, searchItem, changeTodo, getID } = todoSlice.actions;
 export default todoSlice.reducer;
