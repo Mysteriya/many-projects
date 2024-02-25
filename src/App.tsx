@@ -15,8 +15,8 @@ import SpeedTest from "./Pages/SpeedTest";
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/home" element={<Home/>}/>
       <Route path="/" element={<Header/>}>
+      <Route path="/home" element={<Home/>}/>
 
         <>
           <Route path="/img" element={<Images />} />

@@ -1,5 +1,6 @@
 {
     "id": "en",
+    "name": "English",
 
     "page": {
         "home": {
@@ -60,6 +61,11 @@
                 "loading": "Loading . . .",
                 "back": "Go back"
             }
+        },
+        "converter": {
+            "leftSideText": "left side",
+            "rightSideText": "right side",
+            "buttonText": "Convert"
         }
     },
 

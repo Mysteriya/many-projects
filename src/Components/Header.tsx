@@ -7,21 +7,26 @@ import Settings from "./Settings/Settings";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
-const Header:React.FC = () => {
+interface IHeaderProps {
+    theme?: boolean
+}
+
+type TypeButtonHader = {
+    name: string,
+    path: string
+}
+
+const Header:React.FC<IHeaderProps> = () => {
     const [state, setState] = React.useState(false)
 
     const {backMainPage, calculator, converterCurrently, graphOfFunction, receivingPictures, speedClickTest, taskList} = useSelector((state: RootState) => state.languageSlice.items.components!.header)
 
-    type TypeButtonHader = {
-        name: string,
-        path: string
-    }
 
     const button: TypeButtonHader[] = [
         {name: receivingPictures, path: '/img'},
         {name: taskList, path: '/todos'},
-        {name: calculator, path: '/calc'},
         {name: speedClickTest, path: '/click'},
+        {name: calculator, path: '/calc'},
         {name: converterCurrently, path: '/convert'},
         {name: graphOfFunction, path: '/graphOfFunction'},
     ]

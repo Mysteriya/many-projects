@@ -5,7 +5,7 @@ import classes from './MySelect.module.scss'
 type TypeMySelectProps = {
     options: typeSelect[],
 
-    defaultValue: string,
+    defaultValue?: string,
     value?: string,
 
     setSelect: (event: string) => void,

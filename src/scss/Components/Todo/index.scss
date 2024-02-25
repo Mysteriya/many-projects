@@ -15,10 +15,10 @@
 
     .todo-block{
         width: 94%;
-        margin: 20px;
+        margin: 0 auto;
 
         position: relative;
-        top: 20vh;
+        top: 15vh;
 
         margin-top: 60px;
         padding: 20px;
@@ -39,33 +39,29 @@
             }
         }
 
-        p{
-            color: white;
-        }
-
         strong{
-            color: white;
+            color: rgb(84, 84, 84);
         }
 
         .name-block{
-            p{
-                color: white;
+            color: white;
 
-                transition: 0.3s;
+            transition: 0.3s;
 
-                margin-bottom: 10px;
+            margin-bottom: 10px;
 
-                display: inline;
-                padding: 2px;
+            display: inline;
+            padding: 2px;
 
-                margin-left: 10px;
+            &:hover{
+                color: rgb(66, 255, 255);
 
-                &:hover{
-                    color: rgb(66, 255, 255);
-    
-                    border-bottom: 1px dashed rgb(26, 25, 25);
-                }
+                border-bottom: 1px dashed rgb(26, 25, 25);
             }
+        }
+
+        .description-task{
+            margin-top: 15px;
         }
 
         p{
@@ -83,16 +79,15 @@
 
     justify-content: space-between;
 
+    background-color: rgb(117, 117, 117);
+
     .todo-input{
         .todo-col{
             input{
                 width: 250px;
                 height: 25px;
-                
-                border-radius: 5px;
-            }
-            p{
-                color: white;
+
+                padding: 0 5px;
             }
         }
 
@@ -100,14 +95,12 @@
             padding: 10px;
             border: none;
 
-            margin-top: 10px;
+            margin-top: 15px;
 
-            background: -webkit-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
-            background: -moz-linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
-            background: linear-gradient(45deg, rgb(156, 124, 223), rgb(57, 41, 152) 48%, rgb(19, 91, 208));
+            background-color: azure;
 
             &:hover{
-                border: 2px white dashed;
+                background-color: rgb(224, 254, 254);
             }
         }
     }
@@ -122,7 +115,7 @@
                 transition: all 0.3s;
 
                 &:focus{
-                    box-shadow: 5px 5px 5px 5px rgb(25, 25, 25);
+                    box-shadow: 0px 5px 5px rgb(69, 69, 69);
                 }
             }
         }
@@ -134,7 +127,8 @@
 
     h1{
         text-align: center;
-        color: rgb(255, 255, 255);
+        color: rgb(57, 57, 57);
+        text-shadow: 2px 6px 20px black;
     }
 }
 

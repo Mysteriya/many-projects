@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { setLanguage } from '../../redux/slices/languageSlice/languageSlice';
 import MySelect from '../UI/Select/MySelect';
+import { colorChange } from '../../utils/colorChange';
 
 type TypeSettingsProps = {
     state: boolean
@@ -16,7 +17,6 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         about, 
         accauntSettings, 
         changeAccount, 
-        changeLanguage, 
         changeTheme, 
         confidentiality, 
         controlDate, 
@@ -24,8 +24,8 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         referenceMaterial, 
         settings
     } = useSelector((state: RootState) => state.languageSlice.items.components!.settings)
-
-    const {errortext1, errortext2, errortext3, errortext4, errortext5, errortext6, errortext7} = useSelector((state: RootState) => state.languageSlice.items.massageError)
+    const name = useSelector((state: RootState) => state.languageSlice.items.name)
+    const { errortext1, errortext2, errortext3, errortext4, errortext5, errortext6, errortext7 } = useSelector((state: RootState) => state.languageSlice.items.massageError)
 
     const dispatch = useAppDispatch()
 
@@ -44,8 +44,7 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         return massageError[randowIndex]
     }
 
-
-    function functionChangeLanguage(id: string){
+    const functionChangeLanguage = (id: string) => {
         dispatch(setLanguage(id))
     }
 
@@ -78,9 +77,10 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                             <div className={classes.date}>
                                 <button onClick={() => alert(randomShowMassage())}>{controlDate}</button>
                                 <button onClick={() => alert(randomShowMassage())}>{confidentiality}</button>
-                                <button>{changeTheme}</button>
+                                <button onClick={colorChange}>{changeTheme}</button>
                                 <MySelect 
-                                    defaultValue={changeLanguage}
+                                    defaultValue={name}
+                                    value={name}
 
                                     options={[
                                         {name: "Русский", value: "0"},

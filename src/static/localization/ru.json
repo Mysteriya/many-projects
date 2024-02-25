@@ -1,5 +1,6 @@
 {
     "id": "ru",
+    "name": "Русский",
 
     "page": {
         "home": {
@@ -60,6 +61,11 @@
                 "loading": "Загрузка . . .",
                 "back": "Вернуться обратно"
             }
+        },
+        "converter": {
+            "leftSideText": "Левая часть",
+            "rightSideText": "Правая часть",
+            "buttonText": "Сконвертировать"
         }
     },
 

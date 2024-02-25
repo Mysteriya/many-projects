@@ -2,6 +2,7 @@ export interface IPage {
     receivingPictures: IReceivingPictures;
     speedTest: ISpeedTest;
     todoList: ITodoList;
+    converter: IConverter;
 
     home: TypeHome;
 }
@@ -60,6 +61,11 @@ interface ITodoList {
         loading: string;
         back: string;
     }
+}
+interface IConverter {
+    leftSideText: string;
+    rightSideText: string;
+    buttonText: string;
 }
 
 type TypeHome = {

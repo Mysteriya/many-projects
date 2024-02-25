@@ -1,37 +1,58 @@
-import React from 'react'
+import React from 'react';
 
-type TypeBlockProps = {
-    value: number;
-    carrency: string;
-    onChangeValue: (arg: number) => void;
-    setSelectCurrency: (arg: string) => void;
+interface IBlockProps {
+    mainCarrency: string;
+    setMainCarrency: (arg: string) => void;
+
+    carrencyTo: string;
+
+    input: string;
+    setInput: (arg: string) => void;
+
+    carrencyRef: any;
+
+    sideText?: string;
+    disabled: boolean;
 }
 
-export const Block: React.FC<TypeBlockProps> = ({value, carrency, onChangeValue, setSelectCurrency}) => {
+const Block: React.FC<IBlockProps> = ({mainCarrency, setMainCarrency, input, setInput, carrencyTo, carrencyRef, sideText, disabled}) => {
+    const carrencyDefault: Array<string> = ['USD', 'EUR', "GBP", "AED", "AUD", "CNY"];
 
-    const currencyDefault = ["AUD","AZN","GBP","AMD","AED","USD","EUR"]
-
-    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChangeValue(Number(event.target.value))
+    const abc = ():number => {
+        if(true){
+            const price = 1 / carrencyRef[mainCarrency].Value!;
+            const result = price * carrencyRef[carrencyTo].Value!; 
+                            
+            return Number(result.toFixed(3));
+        }
     }
 
-  return (
-    <div className='sideBlock'>
-        <div>
-            {currencyDefault.map((elem) =>
-                <strong 
-                    onClick={() => setSelectCurrency(elem)}
-                    key={elem}
-                    className={carrency === elem ? 'active' : ''}
+    return (
+        <div className='convert_area'>
+            <div className='currency_list'>
+                {carrencyDefault.map((item) => 
+                    <div 
+                        key={item} 
+                        className={`carrency ${item === mainCarrency && 'active'}`} 
+                        onClick={() => setMainCarrency(item)}
+                    >
+                        {item}
+                    </div>
+                )}
+            </div>
+            <div className='inputSide'>
+                <input 
+                    disabled={disabled}
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    type='text' 
+                    placeholder={sideText}
+                    className='input__converter'
+                />
+                <p>1 {mainCarrency} ={'>'} {abc()} {carrencyTo}</p>
+            </div>
+        </div>
+    );
+};
 
-                >{elem}</strong>
-            )}
-        </div> 
-
-        <input
-            value={value}
-            onChange={event => onChangeInput(event)}
-        />
-    </div>
-  )
-}
+export default Block;

@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Components/Header'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 
@@ -14,8 +13,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header/> 
-
       <div style={{marginTop: '100px'}}>
         {is ? 
           <div>

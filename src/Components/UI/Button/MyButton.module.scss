@@ -12,8 +12,9 @@
 
     &:hover{
         background-color: rgb(59, 58, 58);
-
         color: azure;
+
+        cursor: pointer;
     }
     &:active{
         background-color: rgb(104, 249, 249);

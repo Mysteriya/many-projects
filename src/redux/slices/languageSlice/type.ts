@@ -8,6 +8,7 @@ export interface IInitialStateLanguage {
 
 interface IListLanguage {
     id?: string;
+    name?: string;
 
     components?: IComponents;
     page?: IPage;

@@ -16,7 +16,7 @@ export default function TodoList() {
     const dispatch = useAppDispatch()
     
     const { sortItems } = useSelector((state: RootState) => state.todoSlice)
-    const {ChangeDescripton, ChangeName, ListTaskVoid, apply, exit, windowEditNameAndDescription} = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.main)
+    const { ChangeDescripton, ChangeName, ListTaskVoid, apply, exit, windowEditNameAndDescription } = useSelector((state: RootState) => state.languageSlice.items.page!.todoList.main)
 
     const [ value, setValue ] = React.useState<{
         title: string;

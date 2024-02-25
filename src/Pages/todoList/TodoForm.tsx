@@ -39,13 +39,15 @@ export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos
       <div className='name-block'>
           <strong>{number}.</strong>
 
-          <Link to={`/todos/${item.id}`}>
-            <p onClick={() => {dispatch(setCount(number))}}>{item.title}</p>
-          </Link>
+          <Link 
+            to={`/todos/${item.id}`} 
+            onClick={() => {dispatch(setCount(number))}}
+            className='text'
+          >{item.title}</Link>
       </div>
 
     <div className='description-task'>
-      <p className='text'>{item.body}</p>
+      {item.body}
     </div>
 
       <div className='todo-button'>
