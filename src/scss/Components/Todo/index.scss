@@ -1,7 +1,4 @@
 .todo-content{
-    width: 100vw;
-    height: 100vh;
-    
     .todoButtonModalBack{
         text-align: start;
     }
@@ -16,9 +13,6 @@
     .todo-block{
         width: 94%;
         margin: 0 auto;
-
-        position: relative;
-        top: 15vh;
 
         margin-top: 60px;
         padding: 20px;
@@ -58,6 +52,10 @@
 
                 border-bottom: 1px dashed rgb(26, 25, 25);
             }
+
+            .text{
+                margin-left: 10px;
+            }
         }
 
         .description-task{
@@ -73,8 +71,6 @@
 .control-block{
     display: flex;
 
-    position: relative;
-    top: 7vw;
     padding: 20px;
 
     justify-content: space-between;
@@ -105,25 +101,25 @@
         }
     }
 
-        .search-block{
-            align-self: end;
-            position: relative;
-            right: 2vw;
+    .search-block{
+        align-self: end;
+        position: relative;
+        right: 2vw;
 
-            input{
-                padding: 10px 30px;
-                transition: all 0.3s;
+        input{
+            padding: 10px 30px;
+            transition: all 0.3s;
 
-                &:focus{
-                    box-shadow: 0px 5px 5px rgb(69, 69, 69);
-                }
+            &:focus{
+                box-shadow: 0px 5px 5px rgb(69, 69, 69);
             }
         }
     }
+}
 
-    .task-list{
-        position: relative;
-        top:10vw;
+.task-list{
+    position: relative;
+    top:10vw;
 
     h1{
         text-align: center;
@@ -131,7 +127,6 @@
         text-shadow: 2px 6px 20px black;
     }
 }
-
 
 .todo-full{
     padding: 20px;

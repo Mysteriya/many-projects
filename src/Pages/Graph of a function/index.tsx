@@ -1,20 +1,29 @@
 import React from 'react'
 
+type TypePoint = {
+  x: number;
+  y: number;
+  state: string;
+}
+
 const pointPositive = {
-  x: 0,
-  y: 0,
+  x: 0.0,
+  y: 0.0,
   state: "positive",
 };
 const pointNegative = {
-  x: 0,
-  y: 0,
+  x: 0.0,
+  y: 0.0,
   state: "negative",
 };
 
 export default function GraphOfFunction() {
+  const [input, setInput] = React.useState<string>('')
   const appRef = React.useRef<HTMLDivElement>(null)
 
-  function createPointOnArea(x: number, y: number, state: string) {
+  const arrayPints: TypePoint[] = []
+
+  function createPointOnArea(x: number, y: number) {
     const elem = document.createElement("div");
     elem.classList.add("point");
 
@@ -22,12 +31,11 @@ export default function GraphOfFunction() {
     elem.style.bottom = y + "px";
 
     appRef.current?.append(elem)
-
-    countExpression(x, state);
   }
 
   function countExpression(X: number, state: string) {
-    let Y = Math.acos(X);
+    const string = input.toLocaleUpperCase()
+    const Y = eval(string);
 
     if (state === "positive") {
       X = X += 1;
@@ -44,30 +52,63 @@ export default function GraphOfFunction() {
     return Y;
   }
 
-  const start = () => {
-    positivePath()
-    negativePath()
+  function main(){
+    let state = false
+
+    for(let i = 0; i <= (150 + 1); i++){
+      state = !state
+
+      if(state){
+        pushArray(pointPositive.x, pointPositive.y, pointPositive.state)
+      }else{
+        pushArray(pointNegative.x, pointNegative.y, pointNegative.state)
+      }
+    }
+
+    arrayPints.forEach(( elem: TypePoint ) =>
+      createPointOnArea(elem.x, elem.y)
+    )    
   }
 
-  const positivePath = () => {
-    setInterval(() => {
-      createPointOnArea(pointPositive.x, pointPositive.y, pointPositive.state);
-    }, 50);
-  };
-  const negativePath = () => {
-    setInterval(() => {
-      createPointOnArea(pointNegative.x, pointNegative.y, pointNegative.state);
-    }, 50);
-  };
-  
+  function pushArray (x: number, y: number, state: string){
+    arrayPints.push({
+      x: x,
+      y: y,
+      state: state,
+    })
+
+    countExpression(x, state)
+  }
+
+  const start = () => {
+    if(input){
+      main()
+    }else{
+      alert('Вы не заполнили поле...')
+    }
+  }
 
   return (
-    <div>
-      <button 
-        className='button-graph'
-        onClick={() => start()}
-      >Построить график
-      </button>
+    <div className='graph_content'>
+      <div className='background'>
+        <div className='window'>
+          <div className='content'>
+            <div className='control_block'>
+            <div className='input'>
+              <div>=</div>
+              <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder='Введите выражение'/>
+
+            </div>
+
+              <button 
+                className='button-graph'
+                onClick={() => start()}
+              >Построить график
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
         <div className="area">
           <div className="section"></div>

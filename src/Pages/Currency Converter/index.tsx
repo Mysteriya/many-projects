@@ -2,6 +2,7 @@ import React from 'react'
 import Block from './Block';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import Loader from '../../Components/UI/Loader/Loader';
 
 export function Converter() {
     const leftText = useSelector((state: RootState) => state.languageSlice.items.page?.converter.leftSideText)
@@ -66,8 +67,8 @@ export function Converter() {
                             disabled={true}
                         />
                     </>
-                    :
-                    <h1>Загрузка...</h1>
+                    :    
+                    <Loader/>
                 }
             </div>
         </div>

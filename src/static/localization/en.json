@@ -90,6 +90,9 @@
             "speedClickTest": "Kick speed",
             "converterCurrently": "Currency Converter",
             "graphOfFunction": "Graph of a function"
+        },
+        "loader": {
+            "text": "Loading . . ."
         }
     },
     "massageError": {

@@ -1,0 +1,28 @@
+.root{
+    .rotate{
+        width: 200px;
+        height: 200px;
+
+        border: 2px dashed rgb(129, 129, 129);
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text__loader{
+            font-size: 30px;
+            color: rgb(129, 129, 129);
+        }
+
+        animation: loader 7s infinite alternate-reverse;
+    }
+}
+
+@keyframes loader {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

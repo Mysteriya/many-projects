@@ -90,6 +90,9 @@
             "speedClickTest": "Скорость киков",
             "converterCurrently": "Конверетр валют",
             "graphOfFunction": "График функции"
+        },
+        "loader": {
+            "text": "Загрузка . . ."
         }
     },
     "massageError": {

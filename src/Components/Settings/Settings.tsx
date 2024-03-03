@@ -13,6 +13,8 @@ type TypeSettingsProps = {
 }
 
 const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
+    const [stateInput, setStateInput] = React.useState(false)
+
     const {
         about, 
         accauntSettings, 
@@ -48,18 +50,31 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         dispatch(setLanguage(id))
     }
 
+    const setFuncState = () => {
+        setState(false)
+        setStateInput(false)
+    }
+
     return (
         <>
         {state === true &&
-            <div className={classes.background} onClick={() => setState(false)}>
+            <div className={classes.background} onClick={() => setFuncState()}>
                 <div className={classes.window} onClick={event => event.stopPropagation()}>
                     <div className={classes.content}>
                         <div className={classes.profile}>
                             <img src={img}/>
+                            {stateInput ?
+                                <>
+                                    <input type='text' placeholder='Сменить имя'/>
+                                </>
+                                :
+                                <>
+                                    <p style={{fontSize: 10}} onClick={() => setStateInput(true)}>сменить имя</p>
+                                </>
+                            }
                             <div>
                                 <p>ИМЯ ПОЛЬЗОВАТЕЛЯ</p>
                             </div>
-
                         {/* редактировать профиль */}
                         </div>
 
