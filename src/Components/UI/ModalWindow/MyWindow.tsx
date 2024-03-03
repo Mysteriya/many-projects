@@ -17,7 +17,7 @@ const MyWindow:React.FC<TypeMyWindowProp> = ({children, isWindow, width, height}
                 className={classes.background}
             >
                 <div className={classes.window} onClick={event => event.stopPropagation()} style={{width: width, height: `${height}%`}}>
-                    <div className={classes.content}>
+                    <div className={classes.content__window}>
                         {children}
                     </div>
                 </div>

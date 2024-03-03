@@ -5,10 +5,20 @@ import { RootState } from '../redux/store'
 const Home: React.FC = () => {
   const {buttonText, text1, text2}  = useSelector((state: RootState) => state.languageSlice.items.page!.home)
 
-  const [is, setIs] = React.useState(false)
+  const [img, setImg] = React.useState<any>({})
+
+  const [is, setIs] = React.useState<any>(false)
 
   const colorChange = () => {
     setIs(true)
+  }
+
+  function getFileSelected(event: any) {
+    let selectedFile = event.target.files[0];
+
+    setImg(selectedFile)
+
+    return selectedFile;
   }
 
   return (
@@ -21,6 +31,12 @@ const Home: React.FC = () => {
           :
           <button onClick={() => colorChange()}>{buttonText}</button>
         }
+        <div>
+          {img.name}
+        </div>
+
+
+        <input type="file" name="photo" multiple accept="image/*,image/jpeg" onChange={(event) => getFileSelected(event)}/>
       </div>
     </>
   )

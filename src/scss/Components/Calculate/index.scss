@@ -1,10 +1,6 @@
 .calculator__content{
     display: flex;
-
     justify-content: center;
-
-    position: relative;
-    top: 100px;
 
     .output{
         display: flex;
@@ -14,15 +10,16 @@
     }
 
     .calculator__block{
+        margin-top: 80px;
+
         width: 280px;
         height: 500px;
 
         background-color: black;
+        color: #fff;
 
         border:  1px solid black;
         border-radius: 20px;
-
-        color: #fff;
 
         padding: 18px;
 

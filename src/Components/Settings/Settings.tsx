@@ -14,6 +14,9 @@ type TypeSettingsProps = {
 
 const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
     const [stateInput, setStateInput] = React.useState(false)
+    const [input, setInput] = React.useState('')
+
+    const [userName, setUserName] = React.useState('name')
 
     const {
         about, 
@@ -46,6 +49,13 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         return massageError[randowIndex]
     }
 
+    const changeName = (event: any) => {
+        if(event.code === 'Enter'){
+            setUserName(input)
+            setStateInput(false)
+        }
+    }
+
     const functionChangeLanguage = (id: string) => {
         dispatch(setLanguage(id))
     }
@@ -63,19 +73,9 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                     <div className={classes.content}>
                         <div className={classes.profile}>
                             <img src={img}/>
-                            {stateInput ?
-                                <>
-                                    <input type='text' placeholder='Сменить имя'/>
-                                </>
-                                :
-                                <>
-                                    <p style={{fontSize: 10}} onClick={() => setStateInput(true)}>сменить имя</p>
-                                </>
-                            }
                             <div>
-                                <p>ИМЯ ПОЛЬЗОВАТЕЛЯ</p>
+                                <p>{userName}</p>
                             </div>
-                        {/* редактировать профиль */}
                         </div>
 
                         <div className={classes.settings}>
@@ -83,6 +83,21 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                             <div className={classes.account}>
                                 <button onClick={() => alert(randomShowMassage())}>{changeAccount}</button>
                                 <button onClick={() => alert(randomShowMassage())}>{accauntSettings}</button>
+                                {stateInput ?
+                                    <div className={classes.input}>
+                                        <input 
+                                            value={input}
+                                            onChange={(event) => setInput(event.target.value)}
+                                            onKeyDown={(event) => changeName(event)}
+                                            type='text' 
+                                            placeholder='Сменить имя'
+                                        />
+                                    </div>
+                                    :
+                                    <>
+                                        <button onClick={() => setStateInput(true)}>Cменить имя</button>
+                                    </>
+                                }
                                 <button 
                                     className={classes.exit} 
                                     onClick={() => alert(randomShowMassage())}

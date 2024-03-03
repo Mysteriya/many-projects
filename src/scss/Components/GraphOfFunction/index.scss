@@ -10,26 +10,25 @@
 .graph_content{
     .window{ 
         position: fixed;
-        top: 100px;
+        top: 0px;
         right: 0;
     
-        width: 20vw;
+        width: 22vw;
         height: 100vh;
-        padding: 10px;
     
         background-color: rgb(61, 61, 61);
-    }
-    
-    .background{
-        position: fixed;
-        top: 0;
-        left: 0;
-    
-        width: 100vw;
-        height: 100vh;
+        z-index: 1;
     }
 
     .control_block{
+        position: relative;
+        top: 300px;
+
+        background-color: rgb(42, 42, 42);
+
+        border-radius: 10px;
+        padding: 10px;
+
         .input{
             border: 1px solid rgb(147, 147, 147);
             border-radius: 5px;
@@ -64,21 +63,13 @@
     }
 
     .area{
-        height: 88.9vh;
-        width: 78.69%;
-        border: 1px solid rgb(235, 235, 235);
         display: grid;
         grid-template-columns: 1fr 1fr;
-
-        overflow: auto;
     
         .section{
-            // width: 1000px;
             padding: 1000px;
             border: 1px solid rgb(192, 179, 156);
             position: relative;
         }
     }
-
-
 }

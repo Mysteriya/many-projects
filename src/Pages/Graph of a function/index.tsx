@@ -21,6 +21,9 @@ export default function GraphOfFunction() {
   const [input, setInput] = React.useState<string>('')
   const appRef = React.useRef<HTMLDivElement>(null)
 
+  const[errorText, setErrorText] = React.useState<string>('Ошибок нету');
+
+  const [state, setState]= React.useState<boolean>(true);
   const arrayPints: TypePoint[] = []
 
   function createPointOnArea(x: number, y: number) {
@@ -53,6 +56,7 @@ export default function GraphOfFunction() {
   }
 
   function main(){
+    setState(true)
     let state = false
 
     for(let i = 0; i <= (150 + 1); i++){
@@ -82,40 +86,44 @@ export default function GraphOfFunction() {
 
   const start = () => {
     if(input){
-      main()
+      try {
+        main()
+      } catch (_) {
+        setErrorText('Вы неправильно заполнили поле...')
+        setState(false)
+      }
     }else{
-      alert('Вы не заполнили поле...')
+      setErrorText('Вы не заполнили поле...')
+      setState(false)
     }
   }
 
   return (
     <div className='graph_content'>
-      <div className='background'>
-        <div className='window'>
-          <div className='content'>
-            <div className='control_block'>
-            <div className='input'>
-              <div>=</div>
-              <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder='Введите выражение'/>
+      <div className='window'>
+        <div className='content__window'>
+          <div className='control_block'>
+          <div className='input'>
+            <div>=</div>
+            <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder='Введите выражение'/>
+          </div>
+          <p style={{color: state === true ? 'green' : 'red'}}>{errorText}</p>
 
-            </div>
-
-              <button 
-                className='button-graph'
-                onClick={() => start()}
-              >Построить график
-              </button>
-            </div>
+            <button 
+              className='button-graph'
+              onClick={() => start()}
+            >Построить график
+            </button>
           </div>
         </div>
       </div>
 
-        <div className="area">
-          <div className="section"></div>
-          <div className="section" ref={appRef}></div>
-          <div className="section"></div>
-          <div className="section"></div>
-        </div>
+      <div className="area">
+        <div className="section"></div>
+        <div className="section" ref={appRef}></div>
+        <div className="section"></div>
+        <div className="section"></div>
+      </div>
     </div>
   )
 }

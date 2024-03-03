@@ -1,9 +1,9 @@
-div{
+.speedText__content{
     div{
         .styleButton{
             padding: 15px 25px;
             margin-top: 30px;
-    
+     
             border: none;
             border-radius: 5px;
     
@@ -52,17 +52,22 @@ div{
         display: block;
 
         margin-top:20px;
-
-        background-color: rgb(255, 255, 255);
         padding: 90px 300px;
+
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(131, 131, 131);
 
         border: none;
         border-radius: 5px;
 
+        letter-spacing: 10px;
+        font-size: 25px;
+
         transition: 0.1s;
 
         &:hover{
-            background-color: rgb(245, 245, 245);
+            background-color: rgb(68, 68, 68);
+            color: #ffffff;
 
             cursor: pointer;
         }
@@ -70,6 +75,5 @@ div{
             background-color: #2f2f2f;
             transform: scale(1.2);
         }
-
     }
 }

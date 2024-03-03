@@ -17,8 +17,8 @@ export default function Images() {
   }
 
   return (
-    <div className='content'>
-      <div className='content-block'>
+    <div className='image__content'>
+      <div className='content_block'>
         <div className='block'>
           <Mybutton onClick={() => getItems()}>{buttonText1}</Mybutton>
         </div>

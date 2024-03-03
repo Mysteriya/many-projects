@@ -72,7 +72,7 @@ export default function SpeedTest() {
     }
 
   return (
-    <div>
+    <div className='speedText__content'>
         <MyWindow isWindow={isWindow}>
             <div>
                 <h1>{clickSpeed}: {result} {clickSec}</h1>

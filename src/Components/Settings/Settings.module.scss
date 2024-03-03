@@ -24,7 +24,7 @@
 .window{ 
     position: absolute;
     top: 75px;
-    right: 10px;
+    right: 20px;
 
     width: 17vw;
 
@@ -52,7 +52,6 @@
         align-items: center;
 
         margin-bottom: 10px;
-
         img{
             width: 50px;
             height: 50px;
@@ -62,8 +61,8 @@
 
         div{
             margin: 0 auto;
-
             p{
+                margin-right: 60px;
                 text-align: center;
             }
         }
@@ -85,7 +84,15 @@
         .setting{
             @include group();
         }
+        .input{
+            display: flex;
+            justify-content: center;
 
+            input{
+                border: none;
+                padding: 10px
+            }
+        }
 
 
         select{
