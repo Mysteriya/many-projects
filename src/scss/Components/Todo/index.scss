@@ -9,6 +9,18 @@
         position: relative;
         bottom: 50%;
     }
+    .todo_input_window{
+        .todo_col{
+            input{
+                width: 250px;
+                height: 15px;
+
+                padding: 5px;
+
+                border: none;
+            }
+        }
+    }
 
     .todo-block{
         width: 94%;
@@ -70,20 +82,18 @@
 
 .control-block{
     display: flex;
-
-    padding: 20px;
-
     justify-content: space-between;
 
+    padding: 20px;
     background-color: rgb(117, 117, 117);
 
-    .todo-input{
+    .todo_input{
         .todo-col{
             input{
-                width: 250px;
-                height: 25px;
+                width: 200px;
+                height: 10px;
 
-                padding: 0 5px;
+                padding: 10px;
             }
         }
 

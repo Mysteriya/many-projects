@@ -5,6 +5,7 @@ import { fetchImages } from '../../redux/slices//imageSlice/imageSlice'
 import { RootState, useAppDispatch } from '../../redux/store'
 import Image from './Image'
 import { TypeImageState } from '../../redux/slices/imageSlice/type'
+import MyWindow from '../../Components/UI/ModalWindow/MyWindow'
 
 export default function Images() {
   const dispatch = useAppDispatch()
@@ -19,9 +20,11 @@ export default function Images() {
   return (
     <div className='image__content'>
       <div className='content_block'>
-        <div className='block'>
-          <Mybutton onClick={() => getItems()}>{buttonText1}</Mybutton>
-        </div>
+        <MyWindow position='fixed' top={0} left={0} background='rgb(48, 48, 48)' width={"23vw"} height={"100vh"} isWindow>
+          <div className='block'>
+            <Mybutton onClick={() => getItems()}>{buttonText1}</Mybutton>
+          </div>
+        </MyWindow>
         <div className='image'>  
           {items.map((item: TypeImageState) =>
             <Image id={item.id} url={item.url} key={item.id}/>

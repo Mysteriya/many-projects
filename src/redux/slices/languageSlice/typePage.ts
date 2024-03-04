@@ -3,6 +3,7 @@ export interface IPage {
     speedTest: ISpeedTest;
     todoList: ITodoList;
     converter: IConverter;
+    graphOfFunction: IGraphOfFunction
 
     home: TypeHome;
 }
@@ -66,6 +67,13 @@ interface IConverter {
     leftSideText: string;
     rightSideText: string;
     buttonText: string;
+}
+interface IGraphOfFunction {
+    error1: string;
+    error2: string;
+    successfully: string;
+    start: string;
+    enter: string;
 }
 
 type TypeHome = {

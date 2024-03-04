@@ -8,21 +8,9 @@
 }
 
 .graph_content{
-    .window{ 
-        position: fixed;
-        top: 0px;
-        right: 0;
-    
-        width: 22vw;
-        height: 100vh;
-    
-        background-color: rgb(61, 61, 61);
-        z-index: 1;
-    }
-
     .control_block{
         position: relative;
-        top: 300px;
+        top: 110px;
 
         background-color: rgb(42, 42, 42);
 
@@ -41,7 +29,6 @@
 
                 border-radius: 5px;
             }
-
             input{
                 background-color: rgba(0, 0, 0, 0);
                 border: none;

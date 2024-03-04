@@ -33,6 +33,7 @@
 
     background-color: rgb(224, 224, 224);
 
+    z-index: 105;
 }
 
 .background{
@@ -43,7 +44,7 @@
     width: 100vw;
     height: 100vh;
 
-    z-index: 100;
+    z-index: 105;
 }
 
 .content{

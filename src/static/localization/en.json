@@ -1,6 +1,16 @@
 {
     "id": "en",
     "name": "English",
+    "massageError": {
+        "errortext1": "Then it will work", 
+        "errortext2": "It doesn't work yet", 
+        "errortext3": "Sorry, but it doesn't work",
+        "errortext4": "Coming soon, probably",
+        "errortext5": "It doesn't work yet",
+        "errortext6": "Wait until it works",
+        "errortext7": "Will be ready soon",
+        "errortext8": "Do not wait"
+    },
 
     "page": {
         "home": {
@@ -66,7 +76,14 @@
             "leftSideText": "left side",
             "rightSideText": "right side",
             "buttonText": "Convert"
-        }
+        },
+        "graphOfFunction": {
+            "error1": "You filled in the field incorrectly...",
+            "error2": "You haven't filled in the field...",
+            "successfully": "No errors",
+            "start": "Build a graph",
+            "enter": "enter expression"
+        } 
     },
 
     "components": {
@@ -94,15 +111,5 @@
         "loader": {
             "text": "Loading . . ."
         }
-    },
-    "massageError": {
-        "errortext1": "Потом заработает", 
-        "errortext2": "Оно пока не работает", 
-        "errortext3": "Извините, но оно оно не работает",
-        "errortext4": "Скоро будет. Наверное",
-        "errortext5": "Оно еще не работает",
-        "errortext6": "Подождите, пока оно не заработает",
-        "errortext7": "Скоро будет готово",
-        "errortext8": "Не ждите"
-    }  
+    }
 }

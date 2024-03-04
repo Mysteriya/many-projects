@@ -1,5 +1,5 @@
 .background{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -14,8 +14,7 @@
 .window{ 
     text-align: center;
 
-    border-radius: 5px;
-    background-color: rgba(255, 119, 119, 0.986);
+    z-index: 101;
 }
 
 .content__window{

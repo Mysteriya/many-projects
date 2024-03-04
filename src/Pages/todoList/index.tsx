@@ -53,15 +53,15 @@ export default function TodoList() {
 
     return (
         <div className='todo-content'>
-            <MyWindow isWindow={isModalActive}>
-                <div>
+            <MyWindow isWindow={isModalActive} isBackground background='rgb(103, 103, 103)' width='100%'>
+                <div className='todo_input_window'>
                     <h2>{windowEditNameAndDescription}</h2>
 
                     <div className='todoButtonModalBack'>
                         <Mybutton onClick={() => setIsModalActive(false)}>{exit}</Mybutton>
                     </div>
 
-                    <div className='todo-col'>
+                    <div className='todo_col'>
                         <p>{ChangeName}</p>
                         <input 
                             value={changeValue.title}
@@ -71,7 +71,7 @@ export default function TodoList() {
                         />
                     </div>
 
-                    <div className='todo-col'>
+                    <div className='todo_col'>
                         <p>{ChangeDescripton}</p>
                         <input
                             value={changeValue.body}

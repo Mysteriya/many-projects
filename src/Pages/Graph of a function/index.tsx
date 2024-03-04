@@ -1,4 +1,7 @@
 import React from 'react'
+import MyWindow from '../../Components/UI/ModalWindow/MyWindow';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 type TypePoint = {
   x: number;
@@ -18,10 +21,12 @@ const pointNegative = {
 };
 
 export default function GraphOfFunction() {
+  const {error1, error2, start, successfully, enter} = useSelector((state: RootState) => state.languageSlice.items.page?.graphOfFunction!)
+
   const [input, setInput] = React.useState<string>('')
   const appRef = React.useRef<HTMLDivElement>(null)
 
-  const[errorText, setErrorText] = React.useState<string>('Ошибок нету');
+  const[errorText, setErrorText] = React.useState<string>(successfully);
 
   const [state, setState]= React.useState<boolean>(true);
   const arrayPints: TypePoint[] = []
@@ -84,39 +89,39 @@ export default function GraphOfFunction() {
     countExpression(x, state)
   }
 
-  const start = () => {
+  const buildGraph = () => {
     if(input){
       try {
         main()
       } catch (_) {
-        setErrorText('Вы неправильно заполнили поле...')
+        setErrorText(error1)
         setState(false)
       }
     }else{
-      setErrorText('Вы не заполнили поле...')
+      setErrorText(error2)
       setState(false)
     }
   }
 
   return (
     <div className='graph_content'>
-      <div className='window'>
+      <MyWindow isWindow background='rgb(61, 61, 61)' position='fixed' top={0} right={0} width='22vw' height='100vh'>
         <div className='content__window'>
           <div className='control_block'>
           <div className='input'>
             <div>=</div>
-            <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder='Введите выражение'/>
+            <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder={enter}/>
           </div>
           <p style={{color: state === true ? 'green' : 'red'}}>{errorText}</p>
 
             <button 
               className='button-graph'
-              onClick={() => start()}
-            >Построить график
+              onClick={() => buildGraph()}
+            >{start}
             </button>
           </div>
         </div>
-      </div>
+      </MyWindow>
 
       <div className="area">
         <div className="section"></div>
