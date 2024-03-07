@@ -1,0 +1,26 @@
+.initial__window{
+    display: flex;
+    align-content: center;
+
+    width: 535px;
+    height: 50px;
+    
+    margin: 0 auto;
+
+    background-color: rgba(0, 0, 0, 0.057);
+
+    padding: 25px;
+    border-radius: 12px;
+
+    select{
+        display: flex;
+        align-content: center;
+    }
+
+    input{
+        font-size: 25px;
+    }
+    button{
+        margin-left: 10px;
+    }
+}   

@@ -40,7 +40,7 @@ export const TodoForm: React.FC<TypeTodoFormProps> = ({number, item, removeTodos
           <strong>{number}.</strong>
 
           <Link 
-            to={`/todos/${item.id}`} 
+            to={`/going/todos/${item.id}`} 
             onClick={() => {dispatch(setCount(number))}}
             className='text'
           >{item.title}</Link>

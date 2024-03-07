@@ -22,16 +22,18 @@ const Header:React.FC<IHeaderProps> = () => {
     const [stateProfile, setStateProfile] = React.useState(false)
     const [state, setState] = React.useState(true)
 
+
+    const {hide,show} = useSelector((state: RootState) => state.languageSlice.items.components!.text)
     const {backMainPage, calculator, converterCurrently, graphOfFunction, receivingPictures, speedClickTest, taskList} = useSelector((state: RootState) => state.languageSlice.items.components!.header)
 
 
     const button: TypeButtonHader[] = [
-        {name: receivingPictures, path: '/img'},
-        {name: taskList, path: '/todos'},
-        {name: speedClickTest, path: '/click'},
-        {name: calculator, path: '/calc'},
-        {name: converterCurrently, path: '/convert'},
-        {name: graphOfFunction, path: '/graphOfFunction'},
+        {name: receivingPictures, path: '/going/img'},
+        {name: taskList, path: '/going/todos'},
+        {name: speedClickTest, path: '/going/click'},
+        {name: calculator, path: '/going/calc'},
+        {name: converterCurrently, path: '/going/convert'},
+        {name: graphOfFunction, path: '/going/graphOfFunction'},
     ]
 
   return (
@@ -42,20 +44,22 @@ const Header:React.FC<IHeaderProps> = () => {
             <div className={clss.Header__content}>
                 <div className={clss.Button_Block}>
                     <div className={clss.showen}>
-                        <p onClick={() => setState(false)}>скрыть</p>
+                        <p onClick={() => setState(false)}>{hide}</p>
                     </div>
 
                     <div className={clss.buttonButton__Main}>
-                        <Link to={'/home'}>
+                        <Link to={'/going/home'}>
                             <Mybutton>{backMainPage}</Mybutton>
                         </Link>
                     </div>
                     
-                    <div>
+                    <div className={clss.page__buttons}>
                         {button.map((elem: TypeButtonHader) => 
-                            <Link to={elem.path} key={elem.name}>
-                                <Mybutton>{elem.name}</Mybutton>
-                            </Link>      
+                            <div className={clss.button} key={elem.name}>
+                                <Link to={elem.path}>
+                                    <Mybutton>{elem.name}</Mybutton>
+                                </Link> 
+                            </div>     
                         )}
                     </div>
 
@@ -74,7 +78,7 @@ const Header:React.FC<IHeaderProps> = () => {
         :
 
         <div className={clss.hidden}>
-            <p onClick={() => setState(true)}>Показать</p>
+            <p onClick={() => setState(true)}>{show}</p>
         </div>
         
         }

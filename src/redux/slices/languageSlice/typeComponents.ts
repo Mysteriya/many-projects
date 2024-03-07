@@ -2,6 +2,8 @@ export interface IComponents {
     settings: ISettings;
     header: TypeHeader;
     loader: ILoader;
+
+    text: IText;
 }
 
 type TypeHeader = {
@@ -27,4 +29,8 @@ interface ISettings {
 }
 interface ILoader {
     text: string
+}
+interface IText {
+    hide: string;
+    show: string;
 }

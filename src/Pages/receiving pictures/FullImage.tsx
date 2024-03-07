@@ -45,7 +45,7 @@ export default function FullImage() {
         <h1>{item[0].title}</h1>
       </div>
 
-      <Link to={'/img'}>
+      <Link to={'/going/img'}>
         <Mybutton>{buttonBack}</Mybutton>
       </Link>
     </div>

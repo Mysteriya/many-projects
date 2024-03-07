@@ -58,7 +58,7 @@ export const TodoFull: React.FC = () => {
 
   return (
     <div className='todo-full'>
-        <Link to={'/todos/'}>
+        <Link to={'/going/todos/'}>
             <Mybutton>{back}</Mybutton>
         </Link>
 

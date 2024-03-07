@@ -3,7 +3,8 @@ export interface IPage {
     speedTest: ISpeedTest;
     todoList: ITodoList;
     converter: IConverter;
-    graphOfFunction: IGraphOfFunction
+    graphOfFunction: IGraphOfFunction;
+    initialWindow: IInitialWindow;
 
     home: TypeHome;
 }
@@ -74,6 +75,9 @@ interface IGraphOfFunction {
     successfully: string;
     start: string;
     enter: string;
+}
+interface IInitialWindow {
+    done: string;
 }
 
 type TypeHome = {

@@ -3,14 +3,14 @@ import React from 'react'
 import classes from './MyButton.module.scss'
 
 interface IMybuttonProps {
-  children: any;
+  children: React.ReactNode;
   onClick?: () => void;
 }
 
 const Mybutton:React.FC<IMybuttonProps> = (props) => {
   return (
     <button {...props} className={classes.MyButton}>
-        {props.children}
+      {props.children}
     </button>
   )
 }

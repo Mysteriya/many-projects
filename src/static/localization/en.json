@@ -13,6 +13,9 @@
     },
 
     "page": {
+        "initialWindow": {
+            "done": "ready"
+        },
         "home": {
             "buttonText": "Launch a Trojan horse",
             "text1": "Trojan horses on your device",
@@ -110,6 +113,10 @@
         },
         "loader": {
             "text": "Loading . . ."
+        },
+        "text": {
+            "hide": "hide",
+            "show": "show"
         }
     }
 }

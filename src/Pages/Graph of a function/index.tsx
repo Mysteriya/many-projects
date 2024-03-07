@@ -3,12 +3,11 @@ import MyWindow from '../../Components/UI/ModalWindow/MyWindow';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-type TypePoint = {
+type TypePoints = {
   x: number;
   y: number;
   state: string;
 }
-
 const pointPositive = {
   x: 0.0,
   y: 0.0,
@@ -27,9 +26,9 @@ export default function GraphOfFunction() {
   const appRef = React.useRef<HTMLDivElement>(null)
 
   const[errorText, setErrorText] = React.useState<string>(successfully);
-
   const [state, setState]= React.useState<boolean>(true);
-  const arrayPints: TypePoint[] = []
+
+  let arrayPoints: TypePoints[] = []
 
   function createPointOnArea(x: number, y: number) {
     const elem = document.createElement("div");
@@ -74,17 +73,18 @@ export default function GraphOfFunction() {
       }
     }
 
-    arrayPints.forEach(( elem: TypePoint ) =>
+    arrayPoints.forEach((elem: TypePoints) =>
       createPointOnArea(elem.x, elem.y)
-    )    
+    )   
   }
 
   function pushArray (x: number, y: number, state: string){
-    arrayPints.push({
+    const obj = {
       x: x,
       y: y,
       state: state,
-    })
+    }
+    arrayPoints.push(obj)
 
     countExpression(x, state)
   }
@@ -103,17 +103,21 @@ export default function GraphOfFunction() {
     }
   }
 
+  React.useEffect(() => {
+    window.scroll(1300, 1600)
+  }, [])
+
   return (
     <div className='graph_content'>
       <MyWindow isWindow background='rgb(61, 61, 61)' position='fixed' top={0} right={0} width='22vw' height='100vh'>
         <div className='content__window'>
           <div className='control_block'>
-          <div className='input'>
-            <div>=</div>
-            <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder={enter}/>
-          </div>
-          <p style={{color: state === true ? 'green' : 'red'}}>{errorText}</p>
+            <div className='input'>
+              <input type='text' value={input} onChange={(event) => setInput(event.target.value)} placeholder={enter}/>
+            </div>
 
+            <p style={{color: state === true ? 'green' : 'red'}}>{errorText}</p>
+            
             <button 
               className='button-graph'
               onClick={() => buildGraph()}

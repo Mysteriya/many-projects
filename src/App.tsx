@@ -12,38 +12,43 @@ import FullImage from "./Pages/receiving pictures/FullImage";
 import TodoList from "./Pages/todoList";
 import TodoFull from "./Pages/todoList/TodoFull";
 import Calculate from "./Pages/Сalculator";
+import InitialWindow from "./Pages/InitialWindow";
 
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Header/>}>
-        <Route path="/home" element={<Home/>}/>
+      <>
+        <Route path="/" element={<InitialWindow/>}/>
+      </>
 
-        <Route path="/" element={<RootPage/>}>
+      <Route path="/going/" element={<Header/>}>
+        <Route path="/going/home/" element={<Home/>}/>
+
+        <Route path="/going/" element={<RootPage/>}>
           <>
-            <Route path="/img" element={<Images />} />
-            <Route path="/img/:id" element={<FullImage />} />
+            <Route path="/going/img" element={<Images />} />
+            <Route path="/going/img/:id" element={<FullImage />} />
           </>
 
           <>
-            <Route path="/todos" element={<TodoList />} />
-            <Route path="/todos/:id" element={<TodoFull />} />
+            <Route path="/going/todos" element={<TodoList />} />
+            <Route path="/going/todos/:id" element={<TodoFull />} />
           </>
 
           <>
-            <Route path="/calc" element={<Calculate />} />
+            <Route path="/going/calc" element={<Calculate />} />
           </>
           
           <>
-            <Route path="/click" element={<SpeedTest/>}/>
+            <Route path="/going/click" element={<SpeedTest/>}/>
           </>
 
           <>
-            <Route path="/convert" element={<Converter/>}/>
+            <Route path="/going/convert" element={<Converter/>}/>
           </>
 
           <>
-            <Route path="/graphOfFunction" element={<GraphOfFunction/>}/>
+            <Route path="/going/graphOfFunction" element={<GraphOfFunction/>}/>
           </>
         </Route>
       </Route>
