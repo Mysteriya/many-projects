@@ -2,12 +2,13 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Mybutton from "./../UI/Button/Mybutton";
 
-import img  from '../../static/f16a0d86a5711bcc36aa8c59b9ab6ffd.png'
+import img  from '../../static/user.png'
 import Settings from "./../Settings/Settings";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 import clss from './Header.module.scss'
+import { Context } from "../../App";
 
 interface IHeaderProps {
     theme?: boolean
@@ -22,10 +23,10 @@ const Header:React.FC<IHeaderProps> = () => {
     const [stateProfile, setStateProfile] = React.useState(false)
     const [state, setState] = React.useState(true)
 
-
     const {hide,show} = useSelector((state: RootState) => state.languageSlice.items.components!.text)
     const {backMainPage, calculator, converterCurrently, graphOfFunction, receivingPictures, speedClickTest, taskList} = useSelector((state: RootState) => state.languageSlice.items.components!.header)
 
+    const {userColor} = React.useContext(Context)
 
     const button: TypeButtonHader[] = [
         {name: receivingPictures, path: '/going/img'},
@@ -63,7 +64,10 @@ const Header:React.FC<IHeaderProps> = () => {
                         )}
                     </div>
 
-                    <div className={clss.profile__button}>
+                    <div 
+                        className={clss.profile__button}
+                        style={{backgroundColor: userColor}}
+                    >
                         <img  
                             onClick={() => setStateProfile(true)}
                             src={img}

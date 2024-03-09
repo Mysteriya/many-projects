@@ -78,6 +78,7 @@ interface IGraphOfFunction {
 }
 interface IInitialWindow {
     done: string;
+    name: string;
 }
 
 type TypeHome = {

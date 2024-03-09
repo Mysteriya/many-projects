@@ -4,7 +4,7 @@ import classes from './MyButton.module.scss'
 
 interface IMybuttonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (arg?: any) => void;
 }
 
 const Mybutton:React.FC<IMybuttonProps> = (props) => {

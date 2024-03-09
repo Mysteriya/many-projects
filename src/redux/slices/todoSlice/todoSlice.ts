@@ -15,7 +15,7 @@ export const initialState: IInitialStateTodos = {
 };
 
 const todoSlice = createSlice({
-  name: "image",
+  name: "todos",
   initialState,
 
   reducers: {

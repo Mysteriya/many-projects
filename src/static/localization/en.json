@@ -14,7 +14,8 @@
 
     "page": {
         "initialWindow": {
-            "done": "ready"
+            "done": "ready",
+            "name": "Name"
         },
         "home": {
             "buttonText": "Launch a Trojan horse",

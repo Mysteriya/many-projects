@@ -1,36 +1,28 @@
 import React from 'react';
 import classes from './Settings.module.scss'
-import img  from '../../static/f16a0d86a5711bcc36aa8c59b9ab6ffd.png'
+
+import img from '../../static/user.png'
+import MySelect from '../UI/Select/MySelect';
+
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { setLanguage } from '../../redux/slices/languageSlice/languageSlice';
-import MySelect from '../UI/Select/MySelect';
 import { colorChange } from '../../utils/colorChange';
+
+import { Context } from '../../App';
 
 type TypeSettingsProps = {
     state: boolean
     setState: (arg: boolean) => void
 }
 
-const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
+const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
     const [stateInput, setStateInput] = React.useState(false)
-    const [input, setInput] = React.useState('')
+    const {inputUserName, setInpitUserName, userColor, setUserColor} = React.useContext(Context)
 
-    const [userName, setUserName] = React.useState('name')
-
-    const {
-        about, 
-        accauntSettings, 
-        changeAccount, 
-        changeTheme, 
-        confidentiality, 
-        controlDate, 
-        exit, 
-        referenceMaterial, 
-        settings
-    } = useSelector((state: RootState) => state.languageSlice.items.components!.settings)
-    const name = useSelector((state: RootState) => state.languageSlice.items.name)
+    const { about,changeTheme } = useSelector((state: RootState) => state.languageSlice.items.components!.settings)
     const { errortext1, errortext2, errortext3, errortext4, errortext5, errortext6, errortext7 } = useSelector((state: RootState) => state.languageSlice.items.massageError)
+    const name = useSelector((state: RootState) => state.languageSlice.items.name)
 
     const dispatch = useAppDispatch()
 
@@ -49,9 +41,9 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
         return massageError[randowIndex]
     }
 
-    const changeName = (event: any) => {
+    const changeNameEnter = (event: any) => {
         if(event.code === 'Enter'){
-            setUserName(input)
+            setInpitUserName(event.target.value)
             setStateInput(false)
         }
     }
@@ -63,7 +55,7 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
     const setFuncState = () => {
         setState(false)
         setStateInput(false)
-    }
+    } 
 
     return (
         <>
@@ -72,23 +64,24 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                 <div className={classes.window} onClick={event => event.stopPropagation()}>
                     <div className={classes.content}>
                         <div className={classes.profile}>
-                            <img src={img}/>
-                            <div>
-                                <p>{userName}</p>
+                            <div className={classes.profile__button} style={{backgroundColor: userColor}}>
+                                <img src={img}/>
+                            </div>
+
+                            <div className={classes.name}>
+                                <p>{inputUserName}</p>
                             </div>
                         </div>
 
                         <div className={classes.settings}>
                         <hr/>
                             <div className={classes.account}>
-                                <button onClick={() => alert(randomShowMassage())}>{changeAccount}</button>
-                                <button onClick={() => alert(randomShowMassage())}>{accauntSettings}</button>
                                 {stateInput ?
                                     <div className={classes.input}>
                                         <input 
-                                            value={input}
-                                            onChange={(event) => setInput(event.target.value)}
-                                            onKeyDown={(event) => changeName(event)}
+                                            value={inputUserName}
+                                            onChange={(event) => setInpitUserName(event.target.value)}
+                                            onKeyDown={(event) => changeNameEnter(event)}
                                             type='text' 
                                             placeholder='Сменить имя'
                                         />
@@ -98,15 +91,13 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                                         <button onClick={() => setStateInput(true)}>Cменить имя</button>
                                     </>
                                 }
-                                <button 
-                                    className={classes.exit} 
-                                    onClick={() => alert(randomShowMassage())}
-                                >{exit}</button>
+
+                                <div className={classes.input}>
+                                    <input id='color' type='color' value={userColor} onChange={(event) => setUserColor(event.target.value)}/>
+                                </div>
                             </div>
                             <hr/>
                             <div className={classes.date}>
-                                <button onClick={() => alert(randomShowMassage())}>{controlDate}</button>
-                                <button onClick={() => alert(randomShowMassage())}>{confidentiality}</button>
                                 <button onClick={colorChange}>{changeTheme}</button>
                                 <MySelect 
                                     defaultValue={name}
@@ -121,13 +112,8 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState}) => {
                                 ></MySelect>
                             </div>
                             <hr/>
-                            <div className={classes.setting}>
-                                <button onClick={() => alert(randomShowMassage())}>{settings}</button>
-                            </div>
-                            <hr/>
                             <div>
                                 <button onClick={() => alert(randomShowMassage())}>{about}</button>
-                                <button onClick={() => alert(randomShowMassage())}>{referenceMaterial}</button>
                             </div>
                         </div>
                     </div>

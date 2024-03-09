@@ -14,7 +14,8 @@
 
     "page": {
         "initialWindow": {
-            "done": "Готово"
+            "done": "Готово",
+            "name": "Имя"
         },
         "home": {
             "buttonText": "Запустить троянского коня",

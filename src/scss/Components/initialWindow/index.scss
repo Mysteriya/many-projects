@@ -1,26 +1,52 @@
 .initial__window{
-    display: flex;
-    align-content: center;
-
-    width: 535px;
-    height: 50px;
-    
-    margin: 0 auto;
-
     background-color: rgba(0, 0, 0, 0.057);
 
-    padding: 25px;
-    border-radius: 12px;
+    width: auto;
+    height: auto;
 
-    select{
+    padding: 30px;
+
+    .Initial__img{
+        margin-bottom: 20px;
+        border-radius: 50%;
+
+        background-color: rgb(216, 227, 239);
+
+        width: 50px;
+        height: 50px;
+
+        margin: 0 auto;
+
+        img{
+            width: 50px;
+            height: 50px;
+
+            border-radius: 500%;
+            
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .initial__settings{
+        margin-top: 30px;
+
         display: flex;
-        align-content: center;
-    }
+        justify-content: center;
 
-    input{
-        font-size: 25px;
-    }
-    button{
-        margin-left: 10px;
+        select{
+            margin-right: 10px;
+        }
+
+        .initial__input{
+            font-size: 25px;
+
+            &.error{
+                border: 1px solid red;
+            }
+        }
+        button{
+            margin-left: 10px;
+        }
     }
 }   

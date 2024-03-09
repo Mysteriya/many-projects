@@ -73,7 +73,7 @@ export default function SpeedTest() {
 
   return (
     <div className='speedText__content'>
-        <MyWindow isWindow={isWindow} isBackground background='rgba(103, 103, 103, 1)' position='absolute' top={"100px"} width='100%' height='250px'>
+        <MyWindow isWindow={isWindow} isBackground background='rgba(103, 103, 103, 1)' position="relative" top={"120px"} width='100%' height='250px'>
             <div>
                 <h1>{clickSpeed}: {result} {clickSec}</h1>
                 <h2>{dialed} {bRef.current} {clickText} {aRef.current} {sec}</h2>
