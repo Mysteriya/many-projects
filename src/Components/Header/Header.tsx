@@ -26,7 +26,7 @@ const Header:React.FC<IHeaderProps> = () => {
     const {hide,show} = useSelector((state: RootState) => state.languageSlice.items.components!.text)
     const {backMainPage, calculator, converterCurrently, graphOfFunction, receivingPictures, speedClickTest, taskList} = useSelector((state: RootState) => state.languageSlice.items.components!.header)
 
-    const {userColor} = React.useContext(Context)
+    const {stateUserColor} = React.useContext(Context)
 
     const button: TypeButtonHader[] = [
         {name: receivingPictures, path: '/going/img'},
@@ -66,7 +66,7 @@ const Header:React.FC<IHeaderProps> = () => {
 
                     <div 
                         className={clss.profile__button}
-                        style={{backgroundColor: userColor}}
+                        style={{backgroundColor: stateUserColor}}
                     >
                         <img  
                             onClick={() => setStateProfile(true)}

@@ -10,7 +10,7 @@ const initialState: IInitialStateLanguage = {
   ],
 
   items: {
-    ...ru
+    ...en
   },
 };
 

@@ -9,7 +9,10 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import { setLanguage } from '../../redux/slices/languageSlice/languageSlice';
 import { colorChange } from '../../utils/colorChange';
 
-import { Context } from '../../App';
+import { Context, storage } from '../../App';
+import { TypeUserInfo } from '../../App';
+import { saveUserInfo } from '../../utils/saveUserInfo';
+import _default from 'react-redux/es/components/connect';
 
 type TypeSettingsProps = {
     state: boolean
@@ -17,14 +20,16 @@ type TypeSettingsProps = {
 }
 
 const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
+    const dispatch = useAppDispatch()
+
+    const [inputUserName, setInputUserName] = React.useState('')
+
     const [stateInput, setStateInput] = React.useState(false)
-    const {inputUserName, setInpitUserName, userColor, setUserColor} = React.useContext(Context)
+    let {stateUserName, setStateUserName, stateUserColor, setStateUserColor, stateTheme, setStateTheme,statelanguageID,setStatelanguageID} = React.useContext(Context)
 
     const { about,changeTheme } = useSelector((state: RootState) => state.languageSlice.items.components!.settings)
-    const { errortext1, errortext2, errortext3, errortext4, errortext5, errortext6, errortext7 } = useSelector((state: RootState) => state.languageSlice.items.massageError)
+    const { errortext1, errortext2, errortext3, errortext4, errortext5, errortext6, errortext7 } = useSelector((state: RootState) => state.languageSlice.items!.massageError)
     const name = useSelector((state: RootState) => state.languageSlice.items.name)
-
-    const dispatch = useAppDispatch()
 
     const massageError: string[] = [
         errortext1,
@@ -43,19 +48,76 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
 
     const changeNameEnter = (event: any) => {
         if(event.code === 'Enter'){
-            setInpitUserName(event.target.value)
+            setStateUserName(event.target.value)
+            
+            storage.userName = event.target.value
+            storage.userColor = stateUserColor
+            storage.theme = stateTheme
+            storage.languageID = statelanguageID
+            storage.state = true
+
+            saveUserInfo(storage)
             setStateInput(false)
         }
     }
 
-    const functionChangeLanguage = (id: string) => {
-        dispatch(setLanguage(id))
+    const changeUserColor = (event: any) => {
+        setStateUserColor(event.target.value)
+        
+        storage.userName = stateUserName
+        storage.userColor = event.target.value
+        storage.theme = stateTheme
+        storage.languageID = statelanguageID
+        storage.state = true
+
+        saveUserInfo(storage)
+    }
+
+    const functionChangeLanguage = (LaungId: string) => {
+        dispatch(setLanguage(LaungId))
+        setStatelanguageID(LaungId)
+
+        storage.userName = stateUserName
+        storage.userColor = stateUserColor
+        storage.theme = stateTheme
+        storage.languageID = LaungId
+        storage.state = true
+
+        saveUserInfo(storage)
+    }
+
+    const functionchangeTheme = () => {
+        setStateTheme(!stateTheme)
+        
+        storage.userName = stateUserName
+        storage.userColor = stateUserColor
+        storage.theme = stateTheme
+        storage.languageID = statelanguageID
+        storage.state = true
+
+        saveUserInfo(storage)
+
+        colorChange() 
     }
 
     const setFuncState = () => {
         setState(false)
         setStateInput(false)
-    } 
+    }
+
+    React.useEffect(() => {
+        const {userName, userColor, languageID, theme}: TypeUserInfo = JSON.parse(window.localStorage.getItem('tools') || "{}")
+
+        setStateUserName(userName)
+        setStatelanguageID(languageID)
+        dispatch(setLanguage(languageID))
+        setStateUserColor(userColor)
+        setStateTheme(!theme)
+
+        if(theme){
+            colorChange()
+        }
+    }, [])
 
     return (
         <>
@@ -64,12 +126,12 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
                 <div className={classes.window} onClick={event => event.stopPropagation()}>
                     <div className={classes.content}>
                         <div className={classes.profile}>
-                            <div className={classes.profile__button} style={{backgroundColor: userColor}}>
+                            <div className={classes.profile__button} style={{backgroundColor: stateUserColor}}>
                                 <img src={img}/>
                             </div>
 
                             <div className={classes.name}>
-                                <p>{inputUserName}</p>
+                                <p>{stateUserName}</p>
                             </div>
                         </div>
 
@@ -80,7 +142,7 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
                                     <div className={classes.input}>
                                         <input 
                                             value={inputUserName}
-                                            onChange={(event) => setInpitUserName(event.target.value)}
+                                            onChange={(event) => setInputUserName(event.target.value)}
                                             onKeyDown={(event) => changeNameEnter(event)}
                                             type='text' 
                                             placeholder='Сменить имя'
@@ -93,12 +155,12 @@ const Settings: React.FC<TypeSettingsProps> = ({ state, setState }) => {
                                 }
 
                                 <div className={classes.input}>
-                                    <input id='color' type='color' value={userColor} onChange={(event) => setUserColor(event.target.value)}/>
+                                    <input id='color' type='color' value={stateUserColor} onChange={(event) => changeUserColor(event)}/>
                                 </div>
                             </div>
                             <hr/>
                             <div className={classes.date}>
-                                <button onClick={colorChange}>{changeTheme}</button>
+                                <button onClick={functionchangeTheme}>{changeTheme}</button>
                                 <MySelect 
                                     defaultValue={name}
                                     value={name}
