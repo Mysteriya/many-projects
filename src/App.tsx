@@ -30,7 +30,7 @@ const value = {
   stateUserColor: "#ffc4e1",
   setStateUserColor: (_arg: string) => {},
 
-  stateTheme: true,
+  stateTheme: false,
   setStateTheme: (_arg: boolean) => {},
 
   statelanguageID: "1",
@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
   const [stateUserName, setStateUserName] = React.useState<string>('')
   const [stateUserColor, setStateUserColor] = React.useState<string>('#ffc4e1')
-  const [stateTheme, setStateTheme] = React.useState<boolean>(true) // true - dark false - white
+  const [stateTheme, setStateTheme] = React.useState<boolean>(false) // true - dark false - white
   const [statelanguageID, setStatelanguageID] = React.useState<string>("1")
 
   const value = {
