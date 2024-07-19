@@ -9,7 +9,7 @@ import { store } from "./redux/store";
 
 import "./scss/App.scss";
 
-const rootElem = document.getElementById("root")
+const rootElem = document.getElementById("app")
 
 if(rootElem){
   const root = ReactDOM.createRoot(rootElem);

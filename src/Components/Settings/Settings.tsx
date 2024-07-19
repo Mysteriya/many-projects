@@ -12,7 +12,6 @@ import { colorChange } from '../../utils/colorChange';
 import { Context, storage } from '../../App';
 import { TypeUserInfo } from '../../App';
 import { saveUserInfo } from '../../utils/saveUserInfo';
-import _default from 'react-redux/es/components/connect';
 
 type TypeSettingsProps = {
     state: boolean

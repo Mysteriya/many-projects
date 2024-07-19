@@ -6,7 +6,7 @@ export interface IInitialStateLanguage {
     languages: Array<IListLanguage>;
 }
 
-interface IListLanguage {
+export interface IListLanguage {
     id?: string;
     name?: string;
 

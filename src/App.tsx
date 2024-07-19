@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from "../node_modules/react-router/dist/in
 
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home";
-import RootPage from "./Pages/RootPage";
+import ContentPage from "./Pages/ContentPage";
 import Images from "./Pages/receiving pictures";
 import Converter from "./Pages/Currency Converter";
 import GraphOfFunction from "./Pages/Graph of a function";
@@ -13,6 +13,7 @@ import TodoList from "./Pages/todoList";
 import TodoFull from "./Pages/todoList/TodoFull";
 import Calculate from "./Pages/Сalculator";
 import InitialWindow from "./Pages/InitialWindow";
+import RootPage from "./RootPage";
 import { saveUserInfo } from "./utils/saveUserInfo";
 
 export type TypeUserInfo = {
@@ -81,26 +82,27 @@ const App: React.FC = () => {
   return (
     <Context.Provider value={value}>
       <Routes>
-        <Route path="/" element={<InitialWindow/>}/>
+        <Route path="/" element={<RootPage/>}>
+          <Route path="/" element={<InitialWindow/>}/>
 
-        <Route path="/going/" element={<Header/>}>
-          <Route path="/going/home/" element={<Home/>}/>
+          <Route path="/going/" element={<Header/>}>
+            <Route path="/going/home/" element={<Home/>}/>
 
-          <Route path="/going/" element={<RootPage/>}>
-              <Route path="/going/img" element={<Images />} />
-              <Route path="/going/img/:id" element={<FullImage />} />
+            <Route path="/going/" element={<ContentPage/>}>
+                <Route path="/going/img" element={<Images />} />
+                <Route path="/going/img/:id" element={<FullImage />} />
 
-              <Route path="/going/todos" element={<TodoList />} />
-              <Route path="/going/todos/:id" element={<TodoFull />} />
+                <Route path="/going/todos" element={<TodoList />} />
+                <Route path="/going/todos/:id" element={<TodoFull />} />
 
-              <Route path="/going/calc" element={<Calculate />} />
-            
-              <Route path="/going/click" element={<SpeedTest/>}/>
+                <Route path="/going/calc" element={<Calculate />} />
+              
+                <Route path="/going/click" element={<SpeedTest/>}/>
 
+                <Route path="/going/convert" element={<Converter/>}/>
 
-              <Route path="/going/convert" element={<Converter/>}/>
-
-            <Route path="/going/graphOfFunction" element={<GraphOfFunction/>}/>
+              <Route path="/going/graphOfFunction" element={<GraphOfFunction/>}/>
+            </Route>
           </Route>
         </Route>
       </Routes>
